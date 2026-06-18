@@ -1,0 +1,900 @@
+/* ================================================================
+   BRACHO PORT SYSTEM — Master Stylesheet
+   Últimas técnicas CSS 2026
+   ================================================================ */
+
+/* --- VARIABLES --- */
+:root {
+    --brand-navy: #0B192C;
+    --brand-blue: #1E3E62;
+    --brand-orange: #FF6500;
+    --brand-orange-light: #FFA066;
+    --brand-dark: #0F172A;
+    --brand-dark-card: #1E293B;
+    --brand-light: #F8FAFC;
+    --easing-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- FONTS --- */
+.font-heading { font-family: 'Barlow', system-ui, sans-serif; font-weight: 700; }
+.font-body    { font-family: 'Inter', system-ui, sans-serif; }
+
+/* ================================================================
+   1. SCROLL-DRIVEN ANIMATIONS
+   ================================================================ */
+@keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(50px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in-left {
+    from { opacity: 0; transform: translateX(-40px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fade-in-right {
+    from { opacity: 0; transform: translateX(40px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scale-in {
+    from { opacity: 0; transform: scale(0.8); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+.reveal-up {
+    animation: fade-in-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 90%;
+}
+.reveal-left {
+    animation: fade-in-left linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 90%;
+}
+.reveal-right {
+    animation: fade-in-right linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 90%;
+}
+.reveal-scale {
+    animation: scale-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 85%;
+}
+
+/* Stagger children */
+.stagger-children > * {
+    animation: fade-in-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 120%;
+}
+.stagger-children > *:nth-child(1) { animation-range: entry 0% entry 120%; }
+.stagger-children > *:nth-child(2) { animation-range: entry 5% entry 125%; }
+.stagger-children > *:nth-child(3) { animation-range: entry 10% entry 130%; }
+.stagger-children > *:nth-child(4) { animation-range: entry 15% entry 135%; }
+.stagger-children > *:nth-child(5) { animation-range: entry 20% entry 140%; }
+.stagger-children > *:nth-child(6) { animation-range: entry 25% entry 145%; }
+.stagger-children > *:nth-child(7) { animation-range: entry 30% entry 150%; }
+.stagger-children > *:nth-child(8) { animation-range: entry 35% entry 155%; }
+
+/* ================================================================
+   2. @STARTING-STYLE
+   ================================================================ */
+@starting-style {
+    .mobile-menu-open {
+        opacity: 0;
+        transform: translateY(-12px) scale(0.96);
+    }
+}
+
+/* Mobile menu items staggered entrance */
+.mobile-menu-animate .mobile-link {
+    opacity: 0;
+    transform: translateX(-12px);
+    transition: all 0.3s var(--easing-smooth);
+}
+.mobile-menu-animate:not(.hidden) .mobile-link {
+    opacity: 1;
+    transform: translateX(0);
+}
+.mobile-menu-animate:not(.hidden) .mobile-link:nth-child(1) { transition-delay: 0.05s; }
+.mobile-menu-animate:not(.hidden) .mobile-link:nth-child(2) { transition-delay: 0.1s; }
+.mobile-menu-animate:not(.hidden) .mobile-link:nth-child(3) { transition-delay: 0.15s; }
+.mobile-menu-animate:not(.hidden) .mobile-link:nth-child(4) { transition-delay: 0.2s; }
+.mobile-menu-animate:not(.hidden) .mobile-link:nth-child(5) { transition-delay: 0.25s; }
+
+/* ================================================================
+   3. KEYFRAMES
+   ================================================================ */
+@keyframes gradient-shift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-12px); }
+}
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(255,101,0,0.1); }
+    50%      { box-shadow: 0 0 40px rgba(255,101,0,0.3); }
+}
+@keyframes border-dance {
+    0%   { border-color: rgba(255,101,0,0.3); }
+    50%  { border-color: rgba(255,101,0,0.7); }
+    100% { border-color: rgba(255,101,0,0.3); }
+}
+@keyframes neon-pulse {
+    0%, 100% { box-shadow: 0 0 5px rgba(255,101,0,0.2), 0 0 20px rgba(255,101,0,0.1); }
+    50%      { box-shadow: 0 0 10px rgba(255,101,0,0.4), 0 0 40px rgba(255,101,0,0.2); }
+}
+@keyframes grid-drift {
+    0%   { transform: translate(0, 0); }
+    50%  { transform: translate(30px, 30px); }
+    100% { transform: translate(0, 0); }
+}
+@keyframes particle-float {
+    0%, 100% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+    10%      { opacity: 1; }
+    90%      { opacity: 1; }
+    50%      { transform: translateY(-120px) translateX(40px) scale(1.2); }
+}
+@keyframes glitch {
+    0%   { text-shadow: 2px 0 #FF6500, -2px 0 #1E3E62; }
+    25%  { text-shadow: -2px 0 #FF6500, 2px 0 #1E3E62; }
+    50%  { text-shadow: 1px 0 #FF6500, -1px 0 #1E3E62; }
+    75%  { text-shadow: -1px 0 #FF6500, 1px 0 #1E3E62; }
+    100% { text-shadow: 2px 0 #FF6500, -2px 0 #1E3E62; }
+}
+
+/* ================================================================
+   4. HERO EFFECTS
+   ================================================================ */
+.hero-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+}
+
+.hero-grid::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+        linear-gradient(rgba(255,101,0,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,101,0,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: grid-drift 20s linear infinite;
+    pointer-events: none;
+}
+
+/* Floating particles */
+.particles {
+    position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+    z-index: 1;
+}
+.particle {
+    position: absolute; width: 4px; height: 4px;
+    background: rgba(255,101,0,0.4); border-radius: 50%;
+    animation: particle-float 8s ease-in-out infinite;
+}
+.particle:nth-child(1) { left: 10%; top: 80%; animation-delay: 0s; animation-duration: 7s; }
+.particle:nth-child(2) { left: 25%; top: 60%; animation-delay: 1.5s; animation-duration: 9s; }
+.particle:nth-child(3) { left: 50%; top: 70%; animation-delay: 0.8s; animation-duration: 8s; }
+.particle:nth-child(4) { left: 70%; top: 50%; animation-delay: 2.2s; animation-duration: 10s; }
+.particle:nth-child(5) { left: 85%; top: 90%; animation-delay: 3s; animation-duration: 6s; }
+.particle:nth-child(6) { left: 40%; top: 40%; animation-delay: 0.5s; animation-duration: 11s; }
+
+/* Noise texture overlay */
+.noise-overlay {
+    position: fixed; inset: 0; z-index: 9998;
+    opacity: 0.015;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+    pointer-events: none;
+}
+
+/* ================================================================
+   5. TERMINAL CARD
+   ================================================================ */
+.scanline::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+        0deg, transparent, transparent 2px,
+        rgba(255,101,0,0.02) 2px, rgba(255,101,0,0.02) 4px
+    );
+    pointer-events: none;
+    border-radius: inherit;
+}
+.neon-border { animation: neon-pulse 3s ease-in-out infinite; }
+.card-border-pulse { animation: border-dance 3s ease-in-out infinite; }
+
+/* ================================================================
+   6. GRADIENT TEXT
+   ================================================================ */
+.text-gradient {
+    background: linear-gradient(135deg, #FF6500, #FFA066, #FF6500);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 4s ease infinite;
+}
+
+/* ================================================================
+   7. STAT CARDS — Efectos y dibujos
+   ================================================================ */
+.stat-card-v2 {
+    transition: transform 0.4s var(--easing-smooth),
+                box-shadow 0.4s var(--easing-smooth),
+                border-color 0.4s var(--easing-smooth);
+}
+.stat-card-v2:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(255,101,0,0.12);
+    border-color: rgba(255,101,0,0.25) !important;
+}
+
+.stat-bg-icon {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.5s var(--easing-smooth);
+    pointer-events: none;
+    color: var(--brand-orange);
+}
+.stat-bg-icon svg {
+    width: 80px; height: 80px;
+}
+@media (min-width: 640px) {
+    .stat-bg-icon svg { width: 100px; height: 100px; }
+}
+.stat-card-v2:hover .stat-bg-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.stat-number {
+    position: relative;
+    transition: transform 0.3s var(--easing-smooth);
+}
+.stat-card-v2:hover .stat-number {
+    transform: scale(1.08);
+}
+
+.stat-bar {
+    width: 0;
+    height: 3px;
+    margin: 0.5rem auto 0.25rem;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--brand-orange), var(--brand-orange-light));
+    transition: width 0.8s var(--easing-smooth) 0.2s;
+}
+.stat-card-v2:hover .stat-bar {
+    width: 40%;
+}
+.stat-card-v2:not(:hover) .stat-bar {
+    width: 0%;
+}
+
+/* Shimmer overlay on hover */
+.stat-card-v2::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(
+        105deg,
+        transparent 30%,
+        rgba(255,255,255,0.06) 50%,
+        transparent 70%
+    );
+    background-size: 200% 100%;
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+    border-radius: inherit;
+}
+.stat-card-v2:hover::after {
+    opacity: 1;
+    animation: stat-shimmer 0.8s ease;
+}
+@keyframes stat-shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ================================================================
+   8. HOVER EFFECTS
+   ================================================================ */
+
+/* ================================================================
+   8. HOVER EFFECTS
+   ================================================================ */
+.hover-lift {
+    transition: transform 0.3s var(--easing-smooth),
+                box-shadow 0.3s var(--easing-smooth);
+}
+.hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(255,101,0,0.15);
+}
+.hover-glow { transition: box-shadow 0.3s var(--easing-smooth); }
+.hover-glow:hover { box-shadow: 0 0 30px rgba(255,101,0,0.25); }
+.glitch-hover:hover { animation: glitch 0.3s ease-in-out 3; }
+
+/* Card 3D tilt */
+.card-3d { transition: transform 0.4s var(--easing-smooth); }
+.card-3d:hover {
+    transform: perspective(800px) rotateX(2deg) rotateY(2deg);
+}
+
+/* Magnetic button (JS-enhanced) */
+.magnetic-btn { position: relative; display: inline-block; }
+
+/* ================================================================
+   9. NAVIGATION — Menú con animación moderna
+   ================================================================ */
+.nav-link {
+    position: relative;
+    padding: 0.5rem 0.75rem;
+    font-weight: 600;
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s var(--easing-smooth);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+/* Fondo que se desliza desde abajo */
+.nav-link::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: rgba(255,101,0,0.08);
+    border-radius: 0.5rem;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s var(--easing-smooth);
+    z-index: -1;
+}
+.nav-link:hover::before {
+    transform: scaleY(1);
+}
+.dark .nav-link::before {
+    background: rgba(255,101,0,0.12);
+}
+
+/* Línea inferior que crece desde el centro */
+.nav-link::after {
+    content: '';
+    position: absolute; bottom: 2px; left: 50%;
+    width: 0; height: 2px;
+    background: #FF6500;
+    border-radius: 2px;
+    transform: translateX(-50%);
+    transition: width 0.3s var(--easing-smooth);
+}
+.nav-link:hover::after {
+    width: 60%;
+}
+
+.nav-link:hover {
+    color: #FF6500;
+}
+
+/* ================================================================
+   9b. WHATSAPP FLOATING BUTTON
+   ================================================================ */
+.whatsapp-btn {
+    position: fixed; bottom: 2rem; left: 2rem; z-index: 9997;
+    width: 52px; height: 52px;
+    background: #25D366;
+    color: white; border: none; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+    text-decoration: none;
+    transition: all 0.3s var(--easing-smooth);
+    animation: whatsapp-pop 0.5s var(--easing-smooth) 1s both;
+}
+.whatsapp-btn:hover {
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 8px 30px rgba(37,211,102,0.45);
+    color: white;
+}
+@keyframes whatsapp-pop {
+    0%   { opacity: 0; transform: scale(0); }
+    70%  { transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 639px) {
+    .whatsapp-btn {
+        bottom: 1rem; left: 1rem;
+        width: 48px; height: 48px;
+        font-size: 1.3rem;
+    }
+}
+
+/* ================================================================
+   10. BACK TO TOP
+   ================================================================ */
+.back-to-top {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 9997;
+    width: 44px; height: 44px;
+    background: var(--brand-orange);
+    color: white; border: none; border-radius: 50%;
+    cursor: pointer; font-size: 1.1rem;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(255,101,0,0.3);
+    opacity: 0; visibility: hidden;
+    transform: translateY(20px) scale(0.8);
+    transition: all 0.4s var(--easing-smooth);
+}
+.back-to-top.visible {
+    opacity: 1; visibility: visible;
+    transform: translateY(0) scale(1);
+}
+.back-to-top:hover {
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 8px 30px rgba(255,101,0,0.4);
+}
+
+/* ================================================================
+   11. SECTION DIVIDERS (SVG waves)
+   ================================================================ */
+.section-divider {
+    position: relative; width: 100%; height: 60px; overflow: hidden;
+}
+.section-divider svg {
+    position: absolute; width: 100%; height: 100%;
+}
+@media (min-width: 640px) {
+    .section-divider { height: 80px; }
+}
+@media (min-width: 1024px) {
+    .section-divider { height: 100px; }
+}
+
+/* ================================================================
+   12. FORM FLOATING LABELS
+   ================================================================ */
+.form-group { position: relative; }
+.form-group input {
+    width: 100%; padding: 1rem 1rem 0.5rem;
+    border-radius: 0.75rem;
+    background: white;
+    border: 1px solid #cbd5e1;
+    font-size: 0.75rem;
+    color: #1e293b;
+    outline: none;
+    transition: border-color 0.3s var(--easing-smooth),
+                box-shadow 0.3s var(--easing-smooth);
+}
+.form-group input:focus {
+    border-color: var(--brand-orange);
+    box-shadow: 0 0 0 3px rgba(255,101,0,0.1);
+}
+.form-group label {
+    position: absolute; left: 1rem; top: 1rem;
+    font-size: 0.75rem; color: #94a3b8;
+    transition: all 0.3s var(--easing-smooth);
+    pointer-events: none;
+    background: transparent;
+}
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+    top: 0.25rem; font-size: 0.6rem;
+    color: var(--brand-orange);
+}
+
+.dark .form-group input {
+    background: #1E293B;
+    border-color: #334155;
+    color: #e2e8f0;
+}
+.dark .form-group input:focus {
+    border-color: var(--brand-orange);
+    box-shadow: 0 0 0 3px rgba(255,101,0,0.15);
+}
+.dark .form-group label {
+    background: #1E293B;
+    color: #64748b;
+}
+
+/* ================================================================
+   13. TYPING EFFECT
+   ================================================================ */
+.typed-cursor {
+    display: inline-block; width: 2px; height: 1em;
+    background: var(--brand-orange);
+    margin-left: 2px;
+    animation: blink 0.7s step-end infinite;
+    vertical-align: text-bottom;
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ================================================================
+   14. COUNTER ANIMATION
+   ================================================================ */
+.counter-value {
+    display: inline-block;
+}
+
+/* ================================================================
+   15. VIEW TRANSITIONS API
+   ================================================================ */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 0.4s;
+    animation-timing-function: var(--easing-smooth);
+}
+::view-transition-old(root) {
+    animation-name: -ua-view-transition-fade-out;
+}
+::view-transition-new(root) {
+    animation-name: -ua-view-transition-fade-in;
+    mix-blend-mode: normal;
+}
+
+/* ================================================================
+   16. ROLES GRID (sin tabla, sin scroll)
+   ================================================================ */
+.roles-grid {
+    display: grid;
+    gap: 0.5rem;
+}
+.roles-header {
+    display: none;
+}
+.role-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+    align-items: start;
+    padding: 1rem 1.25rem;
+    border-radius: 0.75rem;
+    background: rgba(255,255,255,0.5);
+    border: 1px solid transparent;
+    transition: all 0.3s var(--easing-smooth);
+}
+.dark .role-row {
+    background: rgba(30,41,59,0.5);
+}
+.role-row:hover {
+    border-color: rgba(255,101,0,0.3);
+    background: rgba(255,101,0,0.02);
+}
+.role-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--brand-blue);
+    white-space: nowrap;
+}
+.dark .role-title { color: #60A5FA; }
+.role-title i {
+    color: var(--brand-orange);
+    font-size: 0.85rem;
+    min-width: 1.1rem;
+}
+.role-desc {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: #64748b;
+}
+.dark .role-desc { color: #94a3b8; }
+
+@media (max-width: 639px) {
+    .role-row {
+        grid-template-columns: 1fr;
+        gap: 0.35rem;
+        padding: 0.85rem 1rem;
+    }
+    .role-title {
+        font-size: 0.8rem;
+        padding-bottom: 0.25rem;
+    }
+    .role-desc {
+        font-size: 0.7rem;
+    }
+}
+
+/* ================================================================
+   17. RESPONSIVE — Mobile First
+   ================================================================ */
+@media (max-width: 639px) {
+    /* Nav */
+    nav .max-w-7xl { height: 3.75rem; }
+    nav .w-60 { width: 12rem; }
+    nav .w-60 svg text { font-size: 1.5rem !important; }
+
+    /* Hero */
+    .hero-title {
+        font-size: 1.5rem !important;
+        line-height: 1.2 !important;
+    }
+    .hero-subtitle {
+        font-size: 0.75rem !important;
+    }
+    header.py-12 {
+        padding-top: 2.5rem !important;
+        padding-bottom: 5rem !important;
+    }
+
+    /* Hide decorative overload on mobile */
+    .crane-hook { display: none !important; }
+    .beam-light { display: none !important; }
+    .container-block { display: none !important; }
+    .particle { display: none !important; }
+    .hero-grid::before { background-size: 30px 30px !important; }
+    .cargo-bg::before { background-size: 20px 20px !important; }
+
+    /* Sections */
+    .section-inner {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        padding-top: 2.5rem !important;
+        padding-bottom: 2.5rem !important;
+    }
+    .section-divider {
+        height: 2rem !important;
+    }
+    .mobile-nav-link {
+        padding: 0.75rem 0 !important;
+        font-size: 0.85rem !important;
+    }
+
+    /* Cards & grids */
+    .objetivos-grid,
+    #objetivos .grid { gap: 0.75rem !important; }
+    #objetivos .max-w-3xl { margin-bottom: 1.5rem !important; }
+
+    /* Stats */
+    .stat-card-v2 { padding: 0.75rem 0.5rem !important; }
+    .stat-number { font-size: 1.5rem !important; }
+    .stat-bar { display: none; }
+
+    /* Modulos */
+    #modulos .grid { gap: 0.75rem !important; }
+
+    /* Problema section */
+    #problema .grid { display: flex; flex-direction: column; gap: 0.75rem; }
+    #problema .border-l-4 { border-left-width: 3px; padding-left: 0.75rem; }
+
+    /* Roles */
+    #roles .rounded-2xl { padding: 0.75rem !important; }
+
+    /* Contacto */
+    #contacto .rounded-3xl { padding: 1.25rem !important; }
+
+    /* Footer */
+    footer.py-8 { padding-top: 1.5rem !important; padding-bottom: 1.5rem !important; }
+
+    /* Back to top */
+    .back-to-top {
+        bottom: 1rem; right: 1rem;
+        width: 40px; height: 40px;
+        font-size: 1rem;
+    }
+
+    /* Section headings */
+    .text-2xl.sm\:text-3xl.font-black {
+        font-size: 1.25rem !important;
+    }
+    .text-\[10px\].sm\:text-xs {
+        font-size: 0.55rem !important;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    .hero-title {
+        font-size: 2.5rem !important;
+    }
+    header.py-12 {
+        padding-top: 3rem !important;
+        padding-bottom: 6rem !important;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    .hero-title {
+        font-size: 2.5rem !important;
+    }
+}
+
+/* Touch targets */
+@media (hover: none) and (pointer: coarse) {
+    .hover-lift:hover,
+    .card-3d:hover,
+    .hover-glow:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+    .nav-link::before,
+    .nav-link::after { display: none; }
+    button, a, input, select, textarea {
+        min-height: 44px;
+    }
+}
+
+/* ================================================================
+   18. REDUCED MOTION
+   ================================================================ */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ================================================================
+   19. MARITIME EFFECTS
+   ================================================================ */
+
+/* --- 19a. WATER WAVE HERO BOTTOM --- */
+.wave-container {
+    position: absolute; bottom: -2px; left: 0; width: 100%;
+    height: 80px; overflow: hidden; z-index: 2;
+    pointer-events: none;
+}
+.wave-container svg {
+    position: absolute; bottom: 0; width: 200%; height: 100%;
+    animation: wave-drift 6s linear infinite;
+}
+.wave-container svg:nth-child(2) {
+    animation: wave-drift 8s linear infinite reverse;
+    opacity: 0.5;
+}
+@keyframes wave-drift {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* --- 19c. SHIPS ON WAVES --- */
+.ship {
+    position: absolute;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 3;
+    animation-composition: add;
+}
+.ship-large {
+    width: 90px;
+    height: auto;
+    animation: ship-sail-large 90s linear infinite, ship-bob 5s ease-in-out infinite;
+    bottom: -4px;
+}
+.ship-small {
+    width: 55px;
+    height: auto;
+    animation: ship-sail-small 70s linear infinite, ship-bob 4s ease-in-out infinite;
+    animation-delay: -25s, -2s;
+    bottom: 4px;
+}
+@keyframes ship-sail-large {
+    0%   { transform: translateX(-110px); }
+    100% { transform: translateX(calc(100vw + 60px)); }
+}
+@keyframes ship-sail-small {
+    0%   { transform: translateX(-70px); }
+    100% { transform: translateX(calc(100vw + 40px)); }
+}
+@keyframes ship-bob {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50%      { transform: translateY(-3px) rotate(1deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ship { animation: none !important; opacity: 0; }
+}
+
+/* --- 19b. CARGO CONTAINER GRID PATTERN --- */
+.cargo-bg {
+    position: relative;
+}
+.cargo-bg::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+        linear-gradient(90deg, rgba(255,101,0,0.04) 1px, transparent 1px),
+        linear-gradient(rgba(255,101,0,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+    pointer-events: none;
+}
+
+/* --- 19c. ANIMATED CONTAINER STACK --- */
+@keyframes container-stack {
+    0%   { transform: translateY(0) scale(1); opacity: 0.3; }
+    50%  { transform: translateY(-8px) scale(1.02); opacity: 0.7; }
+    100% { transform: translateY(0) scale(1); opacity: 0.3; }
+}
+.container-block {
+    position: absolute;
+    border: 1px solid rgba(255,101,0,0.15);
+    background: rgba(255,101,0,0.03);
+    border-radius: 2px;
+    animation: container-stack 4s ease-in-out infinite;
+}
+.container-block:nth-child(1) {
+    width: 60px; height: 30px; bottom: 15%; right: 8%;
+    animation-delay: 0s;
+}
+.container-block:nth-child(2) {
+    width: 50px; height: 25px; bottom: 25%; right: 15%;
+    animation-delay: 0.8s;
+}
+.container-block:nth-child(3) {
+    width: 45px; height: 22px; bottom: 35%; right: 5%;
+    animation-delay: 1.6s;
+}
+
+/* --- 19d. CRANE HOOK SWING --- */
+@keyframes crane-swing {
+    0%, 100% { transform: rotate(-3deg); }
+    50%      { transform: rotate(3deg); }
+}
+.crane-hook {
+    position: absolute;
+    font-size: 2rem;
+    color: rgba(255,101,0,0.15);
+    animation: crane-swing 3s ease-in-out infinite;
+    transform-origin: top center;
+    pointer-events: none;
+}
+
+/* --- 19e. PORT RADAR SCAN --- */
+@keyframes radar-sweep {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.radar-scanner {
+    position: absolute; top: 50%; right: 5%;
+    width: 40px; height: 40px;
+    border: 1px solid rgba(255,101,0,0.15);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.radar-scanner::after {
+    content: '';
+    position: absolute; top: 50%; left: 50%;
+    width: 4px; height: 20px;
+    background: linear-gradient(to bottom, rgba(255,101,0,0.4), transparent);
+    transform-origin: top center;
+    animation: radar-sweep 3s linear infinite;
+    border-radius: 2px;
+}
+
+/* --- 19f. LIGHT BEAM / LIGHTHOUSE SWEEP --- */
+@keyframes beam-sweep {
+    0%, 100% { opacity: 0; transform: translateX(-100px) rotate(-10deg); }
+    50%      { opacity: 0.08; transform: translateX(100px) rotate(10deg); }
+}
+.beam-light {
+    position: absolute; top: 20%; left: 0;
+    width: 200%; height: 4px;
+    background: linear-gradient(90deg, transparent, var(--brand-orange), transparent);
+    pointer-events: none;
+    animation: beam-sweep 5s ease-in-out infinite;
+}
+
+/* --- 19g. ANCHOR BOUNCE --- */
+@keyframes anchor-bounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25%      { transform: translateY(-6px) rotate(-2deg); }
+    75%      { transform: translateY(6px) rotate(2deg); }
+}
+.anchor-icon {
+    display: inline-block;
+    animation: anchor-bounce 3s ease-in-out infinite;
+}
+
+/* ================================================================
+   20. UTILITIES
+   ================================================================ */
+.float-anim { animation: float 4s var(--easing-smooth) infinite; }
