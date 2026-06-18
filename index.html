@@ -44,7 +44,7 @@
         <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
 
             <!-- Logo (click to top) -->
-            <a href="#" class="flex items-center w-44 sm:w-72 lg:w-80 transition-opacity hover:opacity-80">
+            <a href="#" class="flex items-center w-44 sm:w-72 lg:w-80 transition-opacity hover:opacity-80 flex-shrink-0">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 110" class="w-full h-auto" aria-label="Bracho Port System Logo">
                     <defs>
                         <linearGradient id="brachoGrad" x1="0%" y1="100%" x2="100%" y2="0%">
@@ -69,8 +69,8 @@
                     </g>
                     <g text-rendering="geometricPrecision" shape-rendering="crispEdges">
                         <text x="140" y="56" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="38" letter-spacing="0.5" class="fill-brand-navy dark:fill-white">BRACHO</text>
-                        <text x="310" y="56" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-weight="400" font-size="38" letter-spacing="0.5" fill="#FF6500">PORT SYSTEM</text>
-                        <text x="142" y="82" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="12.5" fill="#475569" class="dark:fill-slate-400" letter-spacing="3.2">INTEGRATED LOGISTICS SOFTWARE</text>
+                        <text x="325" y="56" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-weight="400" font-size="38" letter-spacing="0.5" fill="#FF6500">PORT SYSTEM</text>
+                        <text x="140" y="88" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="22" fill="#475569" class="dark:fill-slate-400" letter-spacing="1">INTEGRATED LOGISTICS SOFTWARE</text>
                     </g>
                 </svg>
             </a>
@@ -101,20 +101,29 @@
             </div>
         </div>
 
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="mobile-menu-animate hidden lg:hidden bg-white/95 dark:bg-brand-navy/95 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 px-4 pt-2 pb-6 space-y-3 shadow-xl transition-all duration-300 origin-top">
-            <a href="#problema" class="mobile-link mobile-nav-link block py-2 font-medium hover:text-brand-orange">El Desafío</a>
-            <a href="#objetivos" class="mobile-link mobile-nav-link block py-2 font-medium hover:text-brand-orange">Objetivos</a>
-            <a href="#modulos" class="mobile-link mobile-nav-link block py-2 font-medium hover:text-brand-orange">Módulos</a>
-            <a href="#roles" class="mobile-link mobile-nav-link block py-2 font-medium hover:text-brand-orange">Matriz de Acceso</a>
-            <a href="#contacto" class="mobile-link block bg-brand-orange text-white text-center py-2.5 rounded-xl font-bold text-xs uppercase">Demo Gratis</a>
+        <!-- Mobile menu overlay + drawer -->
+        <div id="mobile-overlay" class="mobile-overlay hidden"></div>
+        <div id="mobile-menu" class="mobile-drawer hidden">
+            <div class="flex items-center justify-between px-4 pt-4 pb-2 border-b border-slate-200 dark:border-slate-800">
+                <span class="text-sm font-bold font-heading text-brand-navy dark:text-white uppercase tracking-wider">Menú</span>
+                <button id="mobile-close-btn" class="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none border border-slate-200 dark:border-slate-700">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div class="px-4 pt-4 pb-6 space-y-1">
+                <a href="#problema" class="mobile-link block py-3 px-3 rounded-xl font-medium text-slate-700 dark:text-slate-300 hover:bg-brand-orange/10 hover:text-brand-orange transition">El Desafío</a>
+                <a href="#objetivos" class="mobile-link block py-3 px-3 rounded-xl font-medium text-slate-700 dark:text-slate-300 hover:bg-brand-orange/10 hover:text-brand-orange transition">Objetivos</a>
+                <a href="#modulos" class="mobile-link block py-3 px-3 rounded-xl font-medium text-slate-700 dark:text-slate-300 hover:bg-brand-orange/10 hover:text-brand-orange transition">Módulos</a>
+                <a href="#roles" class="mobile-link block py-3 px-3 rounded-xl font-medium text-slate-700 dark:text-slate-300 hover:bg-brand-orange/10 hover:text-brand-orange transition">Matriz de Acceso</a>
+                <a href="#contacto" class="mobile-link block mt-4 bg-brand-orange text-white text-center py-3 rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-orange-600 transition">Demo Gratis</a>
+            </div>
         </div>
     </nav>
 
     <!-- ============================================================
          HERO
          ============================================================ -->
-    <header class="relative bg-gradient-to-br from-slate-900 via-brand-navy to-brand-blue dark:from-black dark:via-brand-navy dark:to-slate-900 text-white py-12 sm:py-20 lg:py-32 overflow-hidden border-b border-slate-200/30 dark:border-slate-800/30 hero-gradient hero-grid cargo-bg">
+    <header class="relative bg-gradient-to-br from-slate-900 via-brand-navy to-brand-blue dark:from-black dark:via-brand-navy dark:to-slate-900 text-white pt-10 sm:pt-20 lg:pt-32 pb-4 sm:pb-0 overflow-hidden border-b border-slate-200/30 dark:border-slate-800/30 hero-gradient hero-grid cargo-bg">
 
         <div class="particles">
             <div class="particle"></div><div class="particle"></div>
@@ -135,44 +144,9 @@
         <!-- Light beam sweep -->
         <div class="beam-light"></div>
 
-        <!-- Wave separator at bottom -->
-        <div class="wave-container">
-            <svg viewBox="0 0 1440 80" preserveAspectRatio="none" fill="rgba(255,101,0,0.08)">
-                <path d="M0,40 C360,80 720,0 1080,40 L1440,40 L1440,80 L0,80 Z"/>
-            </svg>
-            <svg viewBox="0 0 1440 80" preserveAspectRatio="none" fill="rgba(255,255,255,0.04)">
-                <path d="M0,40 C360,0 720,80 1080,40 L1440,40 L1440,80 L0,80 Z"/>
-            </svg>
-
-            <!-- Ships navigating on waves (Bracho Port System logo ship) -->
-            <svg class="ship ship-large" viewBox="0 0 135 100" fill="none">
-                <g transform="matrix(-1,0,0,1,135,0)">
-                    <path d="M15 75 L35 75 L45 52 L85 52 L95 75 L120 75 L108 92 L27 92 Z" fill="rgba(255,255,255,0.20)"/>
-                    <rect x="52" y="32" width="12" height="20" rx="1" fill="rgba(255,255,255,0.14)"/>
-                    <rect x="68" y="38" width="10" height="14" rx="1" fill="rgba(255,255,255,0.14)"/>
-                    <line x1="22" y1="84" x2="113" y2="84" stroke="rgba(255,255,255,0.40)" stroke-width="2" stroke-linecap="round"/>
-                    <circle cx="42" cy="84" r="2.5" fill="rgba(255,255,255,0.30)"/>
-                    <circle cx="67" cy="84" r="2.5" fill="rgba(255,255,255,0.30)"/>
-                    <circle cx="92" cy="84" r="2.5" fill="rgba(255,255,255,0.30)"/>
-                </g>
-            </svg>
-
-            <svg class="ship ship-small" viewBox="0 0 135 100" fill="none">
-                <g transform="matrix(-1,0,0,1,135,0)">
-                    <path d="M15 75 L35 75 L45 52 L85 52 L95 75 L120 75 L108 92 L27 92 Z" fill="rgba(255,255,255,0.12)"/>
-                    <rect x="52" y="32" width="12" height="20" rx="1" fill="rgba(255,255,255,0.08)"/>
-                    <rect x="68" y="38" width="10" height="14" rx="1" fill="rgba(255,255,255,0.08)"/>
-                    <line x1="22" y1="84" x2="113" y2="84" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-linecap="round"/>
-                    <circle cx="42" cy="84" r="2.5" fill="rgba(255,255,255,0.18)"/>
-                    <circle cx="67" cy="84" r="2.5" fill="rgba(255,255,255,0.18)"/>
-                    <circle cx="92" cy="84" r="2.5" fill="rgba(255,255,255,0.18)"/>
-                </g>
-            </svg>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div class="reveal-left">
-                <span class="bg-brand-orange/20 text-brand-orange text-[10px] sm:text-xs font-bold tracking-widest uppercase px-3 py-1.5 rounded-md border border-brand-orange/30 inline-block font-heading">Investigación Aplicada & Ingeniería Portuaria</span>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            <div class="reveal-left flex flex-col">
+                <span class="bg-brand-orange/20 text-brand-orange text-[10px] sm:text-xs font-bold tracking-widest uppercase px-3 py-1.5 rounded-md border border-brand-orange/30 inline-block font-heading w-fit">Investigación Aplicada & Ingeniería Portuaria</span>
 
                 <h1 class="hero-title text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mt-4 leading-tight uppercase font-heading">
                     Gestión Integral para Empresas Tercerizadas de Mano de Obra en Puertos
@@ -192,6 +166,38 @@
                     <a href="#modulos" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 text-center px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl font-bold text-xs uppercase tracking-wider transition font-heading">
                         Ver Alcance Técnico
                     </a>
+                </div>
+
+                <!-- Ships + waves — inline after buttons -->
+                <div class="hero-ships-container">
+                    <svg class="wave-bg-svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
+                        <path d="M0,40 C360,80 720,0 1080,40 L1440,40 L1440,80 L0,80 Z"/>
+                    </svg>
+                    <svg class="wave-bg-svg wave-bg-svg-2" viewBox="0 0 1440 80" preserveAspectRatio="none">
+                        <path d="M0,40 C360,0 720,80 1080,40 L1440,40 L1440,80 L0,80 Z"/>
+                    </svg>
+                    <svg class="ship ship-large" viewBox="0 0 135 100" fill="none">
+                        <g transform="matrix(-1,0,0,1,135,0)">
+                            <path d="M15 75 L35 75 L45 52 L85 52 L95 75 L120 75 L108 92 L27 92 Z" fill="rgba(255,255,255,0.20)"/>
+                            <rect x="52" y="32" width="12" height="20" rx="1" fill="rgba(255,255,255,0.14)"/>
+                            <rect x="68" y="38" width="10" height="14" rx="1" fill="rgba(255,255,255,0.14)"/>
+                            <line x1="22" y1="84" x2="113" y2="84" stroke="rgba(255,255,255,0.40)" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="42" cy="84" r="2.5" fill="rgba(255,255,255,0.30)"/>
+                            <circle cx="67" cy="84" r="2.5" fill="rgba(255,255,255,0.30)"/>
+                            <circle cx="92" cy="84" r="2.5" fill="rgba(255,255,255,0.30)"/>
+                        </g>
+                    </svg>
+                    <svg class="ship ship-small" viewBox="0 0 135 100" fill="none">
+                        <g transform="matrix(-1,0,0,1,135,0)">
+                            <path d="M15 75 L35 75 L45 52 L85 52 L95 75 L120 75 L108 92 L27 92 Z" fill="rgba(255,255,255,0.12)"/>
+                            <rect x="52" y="32" width="12" height="20" rx="1" fill="rgba(255,255,255,0.08)"/>
+                            <rect x="68" y="38" width="10" height="14" rx="1" fill="rgba(255,255,255,0.08)"/>
+                            <line x1="22" y1="84" x2="113" y2="84" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="42" cy="84" r="2.5" fill="rgba(255,255,255,0.18)"/>
+                            <circle cx="67" cy="84" r="2.5" fill="rgba(255,255,255,0.18)"/>
+                            <circle cx="92" cy="84" r="2.5" fill="rgba(255,255,255,0.18)"/>
+                        </g>
+                    </svg>
                 </div>
             </div>
 
@@ -231,14 +237,14 @@
     <!-- ============================================================
          PROBLEMA
          ============================================================ -->
-    <section id="problema" class="py-12 sm:py-20 bg-white dark:bg-brand-darkBg transition-colors section-inner">
+    <section id="problema" class="py-12 sm:py-20 bg-white dark:bg-brand-darkBg transition-colors">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 reveal-up">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center">
-                <div class="md:col-span-1 border-l-4 border-brand-orange pl-4">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 items-center">
+                <div class="sm:col-span-1 border-l-4 border-brand-orange pl-4">
                     <span class="text-brand-orange text-[10px] sm:text-xs font-bold uppercase tracking-wider font-mono font-heading">Caso de Estudio Operativo</span>
                     <h2 class="text-xl sm:text-2xl font-black text-brand-navy dark:text-white uppercase mt-1 font-heading">El Dolor Logístico</h2>
                 </div>
-                <div class="md:col-span-2 text-slate-600 dark:text-slate-400 text-xs sm:text-sm space-y-3 leading-relaxed">
+                <div class="sm:col-span-2 text-slate-600 dark:text-slate-400 text-xs sm:text-sm space-y-3 leading-relaxed">
                     <p>Las empresas tercerizadas que proveen cuadrillas de estibaje para la carga de barcazas graneleras administran de forma <strong>desarticulada y empírica</strong> tres ejes críticos: la operación física de carga, los recursos humanos y el control contable.</p>
                     <p>Esto provoca ineficiencias, errores manuales en liquidación de haberes, descontrol en el rendimiento y riesgos estructurales en la <strong>navegabilidad de las embarcaciones</strong> debido a una inadecuada distribución de pesos en muelle.</p>
                 </div>
@@ -256,41 +262,41 @@
     <!-- ============================================================
          OBJETIVOS
          ============================================================ -->
-    <section id="objetivos" class="py-12 sm:py-20 bg-slate-100 dark:bg-brand-navy/40 transition-colors section-inner">
+    <section id="objetivos" class="py-12 sm:py-20 bg-slate-100 dark:bg-brand-navy/40 transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16 reveal-up">
+            <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12 reveal-up">
                 <span class="text-brand-orange text-xs font-bold uppercase tracking-widest font-mono font-heading">Ingeniería de Requerimientos</span>
                 <h2 class="text-2xl sm:text-3xl font-black text-brand-navy dark:text-white uppercase mt-2 font-heading text-gradient">Objetivos de Optimización Asegurados</h2>
                 <p class="text-slate-600 dark:text-slate-400 mt-2 text-xs sm:text-sm">Metas validadas metodológicamente para el blindaje legal, operativo y financiero de tu empresa portuaria.</p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 stagger-children">
-                <div class="bg-white dark:bg-brand-darkCard p-5 sm:p-6 rounded-2xl border border-slate-200/60 dark:border-slate-800 shadow-sm hover-lift">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 stagger-children">
+                <div class="bg-white dark:bg-brand-darkCard p-4 sm:p-5 rounded-2xl border border-slate-200/60 dark:border-slate-800 shadow-sm hover-lift">
                     <div class="text-brand-orange font-mono font-bold sm:text-lg mb-1">01.</div>
                     <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1.5 font-heading tracking-wide">Gobernanza de Datos</h3>
                     <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">Diseñar roles estructurados desde el Superusuario hasta el Cliente, asegurando trazabilidad por auditoría de logs.</p>
                 </div>
-                <div class="bg-white dark:bg-brand-darkCard p-5 sm:p-6 rounded-2xl border border-slate-200/60 dark:border-slate-800 shadow-sm hover-lift">
+                <div class="bg-white dark:bg-brand-darkCard p-4 sm:p-5 rounded-2xl border border-slate-200/60 dark:border-slate-800 shadow-sm hover-lift">
                     <div class="text-brand-orange font-mono font-bold sm:text-lg mb-1">02.</div>
                     <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1.5 font-heading tracking-wide">Seguridad en Navegabilidad</h3>
                     <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">Automatizar balanzadas según densidad de producto, validando nivel del río, agua en cóferas y calado crítico permitido.</p>
                 </div>
-                <div class="bg-white dark:bg-brand-darkCard p-5 sm:p-6 rounded-2xl border border-slate-200/60 dark:border-slate-800 shadow-sm hover-lift">
+                <div class="bg-white dark:bg-brand-darkCard p-4 sm:p-5 rounded-2xl border border-slate-200/60 dark:border-slate-800 shadow-sm hover-lift">
                     <div class="text-brand-orange font-mono font-bold sm:text-lg mb-1">03.</div>
                     <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1.5 font-heading tracking-wide">Productividad en Tiempo Real</h3>
                     <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">Control estricto de marcas de asistencia en muelle y cálculo de toneladas métricas cargadas reales por trabajador.</p>
                 </div>
-                <div class="bg-white dark:bg-brand-darkCard p-5 sm:p-6 rounded-2xl border border-slate-200/60 dark:border-slate-800 shadow-sm hover-lift">
+                <div class="bg-white dark:bg-brand-darkCard p-4 sm:p-5 rounded-2xl border border-slate-200/60 dark:border-slate-800 shadow-sm hover-lift">
                     <div class="text-brand-orange font-mono font-bold sm:text-lg mb-1">04.</div>
                     <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1.5 font-heading tracking-wide">Blindaje de Riesgos Laborales</h3>
                     <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">Gestión física y digital de solicitudes y entregas de EPIs vinculados a firma electrónica de recepción y amonestaciones.</p>
                 </div>
-                <div class="bg-white dark:bg-brand-darkCard p-5 sm:p-6 rounded-2xl border border-slate-200/60 dark:border-slate-800 shadow-sm hover-lift">
+                <div class="bg-white dark:bg-brand-darkCard p-4 sm:p-5 rounded-2xl border border-slate-200/60 dark:border-slate-800 shadow-sm hover-lift">
                     <div class="text-brand-orange font-mono font-bold sm:text-lg mb-1">05.</div>
                     <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1.5 font-heading tracking-wide">Sincronización Fiscal</h3>
                     <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">Cálculo automatizado de extractos salariales con deducciones legales vigentes, emisión de recibos y facturas comerciales.</p>
                 </div>
-                <div class="bg-white dark:bg-brand-darkCard p-5 sm:p-6 rounded-2xl border border-slate-200/60 dark:border-slate-800 shadow-sm hover-lift">
+                <div class="bg-white dark:bg-brand-darkCard p-4 sm:p-5 rounded-2xl border border-slate-200/60 dark:border-slate-800 shadow-sm hover-lift">
                     <div class="text-brand-orange font-mono font-bold sm:text-lg mb-1">06.</div>
                     <h3 class="font-bold text-slate-900 dark:text-white text-sm sm:text-base mb-1.5 font-heading tracking-wide">Transparencia Total</h3>
                     <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">Proveer a los clientes contratantes un panel dedicado para auditar el avance de carga y descargar remisiones en vivo.</p>
@@ -302,63 +308,43 @@
     <!-- ============================================================
          STATS
          ============================================================ -->
-    <section class="py-12 sm:py-16 bg-slate-100 dark:bg-brand-navy/40 border-b border-slate-200 dark:border-slate-800 section-inner">
+    <section class="py-10 sm:py-16 bg-slate-100 dark:bg-brand-navy/40 border-b border-slate-200 dark:border-slate-800">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 reveal-up">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-                <div class="stat-card-v2 group relative overflow-hidden rounded-2xl p-5 sm:p-6 text-center shadow-sm border border-slate-200/60 dark:border-slate-800 bg-white dark:bg-brand-darkCard">
-
-                    <div class="stat-bg-icon">
-                        <svg viewBox="0 0 100 100" fill="none"><rect x="20" y="35" width="60" height="40" rx="3" stroke="currentColor" stroke-width="1.5" opacity="0.12"/><rect x="28" y="42" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1" opacity="0.12"/><rect x="46" y="42" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1" opacity="0.12"/><rect x="64" y="42" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1" opacity="0.12"/><line x1="20" y1="28" x2="40" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.08"/><line x1="80" y1="28" x2="60" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.08"/></svg>
-                    </div>
-
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
+                <div class="stat-card-v2 rounded-2xl p-4 sm:p-6 text-center shadow-sm border border-slate-200/60 dark:border-slate-800 bg-white dark:bg-brand-darkCard relative overflow-hidden">
+                    <svg class="stat-bg-icon" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="20" y="35" width="60" height="40" rx="3" stroke="currentColor" stroke-width="1.5"/><rect x="28" y="42" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="46" y="42" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="64" y="42" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.5"/><line x1="20" y1="28" x2="40" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="80" y1="28" x2="60" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
                     <div class="relative z-10">
-                        <div class="text-2xl sm:text-3xl font-black text-brand-orange font-heading stat-number">
+                        <div class="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-orange font-heading">
                             <span class="counter-value" data-target="10" data-suffix="+">0</span>
                         </div>
-                        <div class="stat-bar"></div>
-                        <div class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mt-2 uppercase tracking-widest font-semibold">Experiencia en Logística Portuaria</div>
+                        <div class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1.5 uppercase tracking-widest font-semibold leading-tight">Experiencia en Logística Portuaria</div>
                     </div>
                 </div>
-                <div class="stat-card-v2 group relative overflow-hidden rounded-2xl p-5 sm:p-6 text-center shadow-sm border border-slate-200/60 dark:border-slate-800 bg-white dark:bg-brand-darkCard">
-
-                    <div class="stat-bg-icon">
-                        <svg viewBox="0 0 100 100" fill="none"><rect x="25" y="30" width="50" height="45" rx="4" stroke="currentColor" stroke-width="1.5" opacity="0.12"/><rect x="32" y="38" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1" opacity="0.12"/><rect x="52" y="38" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1" opacity="0.12"/><circle cx="50" cy="58" r="8" stroke="currentColor" stroke-width="1" opacity="0.12"/></svg>
-                    </div>
-
+                <div class="stat-card-v2 rounded-2xl p-4 sm:p-6 text-center shadow-sm border border-slate-200/60 dark:border-slate-800 bg-white dark:bg-brand-darkCard relative overflow-hidden">
+                    <svg class="stat-bg-icon" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="25" y="30" width="50" height="45" rx="4" stroke="currentColor" stroke-width="1.5"/><rect x="32" y="38" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><rect x="52" y="38" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="50" cy="58" r="8" stroke="currentColor" stroke-width="1.5"/></svg>
                     <div class="relative z-10">
-                        <div class="text-2xl sm:text-3xl font-black text-brand-orange font-heading stat-number">
+                        <div class="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-orange font-heading">
                             <span class="counter-value" data-target="4" data-suffix="">0</span>
                         </div>
-                        <div class="stat-bar"></div>
-                        <div class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mt-2 uppercase tracking-widest font-semibold">Módulos Integrados</div>
+                        <div class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1.5 uppercase tracking-widest font-semibold leading-tight">Módulos Integrados</div>
                     </div>
                 </div>
-                <div class="stat-card-v2 group relative overflow-hidden rounded-2xl p-5 sm:p-6 text-center shadow-sm border border-slate-200/60 dark:border-slate-800 bg-white dark:bg-brand-darkCard">
-
-                    <div class="stat-bg-icon">
-                        <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="35" r="12" stroke="currentColor" stroke-width="1.5" opacity="0.12"/><path d="M35 65 Q50 50 65 65" stroke="currentColor" stroke-width="1.5" opacity="0.12" fill="none"/><circle cx="38" cy="70" r="4" stroke="currentColor" stroke-width="1" opacity="0.12"/><circle cx="62" cy="70" r="4" stroke="currentColor" stroke-width="1" opacity="0.12"/></svg>
-                    </div>
-
+                <div class="stat-card-v2 rounded-2xl p-4 sm:p-6 text-center shadow-sm border border-slate-200/60 dark:border-slate-800 bg-white dark:bg-brand-darkCard relative overflow-hidden">
+                    <svg class="stat-bg-icon" viewBox="0 0 100 100" fill="none" aria-hidden="true"><circle cx="50" cy="35" r="12" stroke="currentColor" stroke-width="1.5"/><path d="M35 65 Q50 50 65 65" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="38" cy="70" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="62" cy="70" r="4" stroke="currentColor" stroke-width="1.5"/></svg>
                     <div class="relative z-10">
-                        <div class="text-2xl sm:text-3xl font-black text-brand-orange font-heading stat-number">
+                        <div class="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-orange font-heading">
                             <span class="counter-value" data-target="5" data-suffix="">0</span>
                         </div>
-                        <div class="stat-bar"></div>
-                        <div class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mt-2 uppercase tracking-widest font-semibold">Roles Diferenciados</div>
+                        <div class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1.5 uppercase tracking-widest font-semibold leading-tight">Roles Diferenciados</div>
                     </div>
                 </div>
-                <div class="stat-card-v2 group relative overflow-hidden rounded-2xl p-5 sm:p-6 text-center shadow-sm border border-slate-200/60 dark:border-slate-800 bg-white dark:bg-brand-darkCard">
-
-                    <div class="stat-bg-icon">
-                        <svg viewBox="0 0 100 100" fill="none"><path d="M20 75 L35 45 L50 55 L65 35 L80 65" stroke="currentColor" stroke-width="1.5" opacity="0.12" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="35" cy="45" r="3" stroke="currentColor" stroke-width="1" opacity="0.12"/><circle cx="50" cy="55" r="3" stroke="currentColor" stroke-width="1" opacity="0.12"/><circle cx="65" cy="35" r="3" stroke="currentColor" stroke-width="1" opacity="0.12"/><circle cx="80" cy="65" r="3" stroke="currentColor" stroke-width="1" opacity="0.12"/><line x1="20" y1="80" x2="85" y2="80" stroke="currentColor" stroke-width="1" opacity="0.12" stroke-linecap="round"/></svg>
-                    </div>
-
+                <div class="stat-card-v2 rounded-2xl p-4 sm:p-6 text-center shadow-sm border border-slate-200/60 dark:border-slate-800 bg-white dark:bg-brand-darkCard relative overflow-hidden">
+                    <svg class="stat-bg-icon" viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M20 75 L35 45 L50 55 L65 35 L80 65" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="35" cy="45" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="50" cy="55" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="65" cy="35" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="80" cy="65" r="3" stroke="currentColor" stroke-width="1.5"/><line x1="20" y1="80" x2="85" y2="80" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
                     <div class="relative z-10">
-                        <div class="text-2xl sm:text-3xl font-black text-brand-orange font-heading stat-number">
+                        <div class="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-orange font-heading">
                             <span class="counter-value" data-target="100" data-suffix="%">0</span>
                         </div>
-                        <div class="stat-bar"></div>
-                        <div class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mt-2 uppercase tracking-widest font-semibold">Trazabilidad Auditora</div>
+                        <div class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1.5 uppercase tracking-widest font-semibold leading-tight">Trazabilidad Auditora</div>
                     </div>
                 </div>
             </div>
@@ -375,39 +361,39 @@
     <!-- ============================================================
          MÓDULOS
          ============================================================ -->
-    <section id="modulos" class="py-12 sm:py-20 bg-white dark:bg-brand-darkBg transition-colors section-inner">
+    <section id="modulos" class="py-12 sm:py-20 bg-white dark:bg-brand-darkBg transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16 reveal-up">
+            <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12 reveal-up">
                 <span class="text-brand-orange text-xs font-bold uppercase tracking-widest font-mono font-heading">Módulos Funcionales Avanzados</span>
                 <h2 class="text-2xl sm:text-3xl font-black text-brand-navy dark:text-white uppercase mt-2 font-heading text-gradient">La Arquitectura del Sistema</h2>
                 <p class="text-slate-600 dark:text-slate-400 mt-2 text-xs sm:text-sm">Desarrollado de forma nativa en PHP con el Framework Laravel para garantizar estabilidad y alta Concurrencia.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 stagger-children">
-                <div class="group p-5 sm:p-6 bg-slate-50 dark:bg-brand-darkCard rounded-2xl border border-slate-200/70 dark:border-slate-800/80 hover:border-brand-orange transition-all duration-300 hover-lift card-3d">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-orange-100 dark:bg-brand-orange/10 text-brand-orange rounded-xl flex items-center justify-center text-lg sm:text-xl mb-4 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 stagger-children">
+                <div class="group p-4 sm:p-5 bg-slate-50 dark:bg-brand-darkCard rounded-2xl border border-slate-200/70 dark:border-slate-800/80 hover:border-brand-orange transition-all duration-300 hover-lift card-3d">
+                    <div class="w-9 h-9 sm:w-11 sm:h-11 bg-orange-100 dark:bg-brand-orange/10 text-brand-orange rounded-xl flex items-center justify-center text-base sm:text-lg mb-3 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
                         <i class="fa-solid fa-anchor anchor-icon"></i>
                     </div>
                     <h3 class="text-base sm:text-lg font-bold text-brand-navy dark:text-white uppercase font-heading tracking-wide">Núcleo Operativo de Carga</h3>
                     <p class="text-slate-600 dark:text-slate-400 text-xs mt-2 leading-relaxed">Control total de nominaciones de clientes. Cuenta con un motor de optimización que calcula la distribución exacta de peso por bodega granelera, mitigando demoras y controlando los tiempos de estiba y calados finales en muelle.</p>
                 </div>
-                <div class="group p-5 sm:p-6 bg-slate-50 dark:bg-brand-darkCard rounded-2xl border border-slate-200/70 dark:border-slate-800/80 hover:border-brand-orange transition-all duration-300 hover-lift card-3d">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 dark:bg-blue-500/10 text-brand-blue dark:text-blue-400 rounded-xl flex items-center justify-center text-lg sm:text-xl mb-4 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-                        <i class="fa-solid fa-users-gear"></i>
+                <div class="group p-4 sm:p-5 bg-slate-50 dark:bg-brand-darkCard rounded-2xl border border-slate-200/70 dark:border-slate-800/80 hover:border-brand-orange transition-all duration-300 hover-lift card-3d">
+                    <div class="w-9 h-9 sm:w-11 sm:h-11 bg-blue-100 dark:bg-blue-500/10 text-brand-blue dark:text-blue-400 rounded-xl flex items-center justify-center text-base sm:text-lg mb-3 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+                        <i class="fa-solid fa-users-gear anchor-icon"></i>
                     </div>
                     <h3 class="text-base sm:text-lg font-bold text-brand-navy dark:text-white uppercase font-heading tracking-wide">Gestión de RRHH y Seguridad</h3>
                     <p class="text-slate-600 dark:text-slate-400 text-xs mt-2 leading-relaxed">Administración centralizada de asistencia y marcas de presencia. Gestión automatizada de stock y entrega física de Equipos de Protección Individual (EPIs) integrados con firma manuscrita/digital del trabajador y registro de amonestaciones.</p>
                 </div>
-                <div class="group p-5 sm:p-6 bg-slate-50 dark:bg-brand-darkCard rounded-2xl border border-slate-200/70 dark:border-slate-800/80 hover:border-brand-orange transition-all duration-300 hover-lift card-3d">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-orange-100 dark:bg-brand-orange/10 text-brand-orange rounded-xl flex items-center justify-center text-lg sm:text-xl mb-4 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-                        <i class="fa-solid fa-receipt"></i>
+                <div class="group p-4 sm:p-5 bg-slate-50 dark:bg-brand-darkCard rounded-2xl border border-slate-200/70 dark:border-slate-800/80 hover:border-brand-orange transition-all duration-300 hover-lift card-3d">
+                    <div class="w-9 h-9 sm:w-11 sm:h-11 bg-orange-100 dark:bg-brand-orange/10 text-brand-orange rounded-xl flex items-center justify-center text-base sm:text-lg mb-3 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+                        <i class="fa-solid fa-receipt anchor-icon"></i>
                     </div>
                     <h3 class="text-base sm:text-lg font-bold text-brand-navy dark:text-white uppercase font-heading tracking-wide">Facturación Comercial Automatizada</h3>
                     <p class="text-slate-600 dark:text-slate-400 text-xs mt-2 leading-relaxed">Procesa de forma directa el cruce de toneladas reales de carga fiscalizadas con el tarifario contractual. Emisión inmediata de facturas comerciales, remisiones y control estricto de los estados de cobro del cliente final.</p>
                 </div>
-                <div class="group p-5 sm:p-6 bg-slate-50 dark:bg-brand-darkCard rounded-2xl border border-slate-200/70 dark:border-slate-800/80 hover:border-brand-orange transition-all duration-300 hover-lift card-3d">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 dark:bg-blue-500/10 text-brand-blue dark:text-blue-400 rounded-xl flex items-center justify-center text-lg sm:text-xl mb-4 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-                        <i class="fa-solid fa-calculator"></i>
+                <div class="group p-4 sm:p-5 bg-slate-50 dark:bg-brand-darkCard rounded-2xl border border-slate-200/70 dark:border-slate-800/80 hover:border-brand-orange transition-all duration-300 hover-lift card-3d">
+                    <div class="w-9 h-9 sm:w-11 sm:h-11 bg-blue-100 dark:bg-blue-500/10 text-brand-blue dark:text-blue-400 rounded-xl flex items-center justify-center text-base sm:text-lg mb-3 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+                        <i class="fa-solid fa-calculator anchor-icon"></i>
                     </div>
                     <h3 class="text-base sm:text-lg font-bold text-brand-navy dark:text-white uppercase font-heading tracking-wide">Contabilidad y Libro Diario</h3>
                     <p class="text-slate-600 dark:text-slate-400 text-xs mt-2 leading-relaxed">Cálculo automático de extractos salariales y recibos de sueldo para personal eventual o permanente de la terminal. Cada cierre operativo inyecta directamente el asiento contable automatizado en el libro diario para balances sin discrepancias.</p>
@@ -426,9 +412,9 @@
     <!-- ============================================================
          ROLES
          ============================================================ -->
-    <section id="roles" class="py-12 sm:py-20 bg-slate-100 dark:bg-brand-navy/40 transition-colors section-inner">
+    <section id="roles" class="py-12 sm:py-20 bg-slate-100 dark:bg-brand-navy/40 transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16 reveal-up">
+            <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12 reveal-up">
                 <span class="text-brand-orange text-xs font-bold uppercase tracking-widest font-mono font-heading">Gobernanza y Seguridad Interna</span>
                 <h2 class="text-2xl sm:text-3xl font-black text-brand-navy dark:text-white uppercase mt-2 font-heading text-gradient">Matriz de Roles Diferenciados</h2>
                 <p class="text-slate-600 dark:text-slate-400 mt-2 text-xs sm:text-sm">Control riguroso de permisos mapeado exactamente con los requerimientos operativos reales de las cuadrillas.</p>
@@ -475,16 +461,15 @@
     <!-- ============================================================
          CONTACTO
          ============================================================ -->
-    <section id="contacto" class="py-12 sm:py-20 bg-white dark:bg-brand-darkBg transition-colors section-inner">
+    <section id="contacto" class="py-8 sm:py-14 bg-white dark:bg-brand-darkBg transition-colors">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gradient-to-br from-brand-navy via-brand-blue to-slate-900 text-white rounded-3xl p-6 sm:p-12 shadow-2xl text-center border border-slate-800 reveal-up">
+            <div class="bg-gradient-to-br from-brand-navy via-brand-blue to-slate-900 text-white rounded-3xl p-5 sm:p-8 shadow-2xl text-center border border-slate-800 reveal-up">
                 <span class="text-brand-orange text-xs font-bold uppercase tracking-widest font-mono font-heading">Implementación Inmediata</span>
-                <h2 class="text-2xl sm:text-3xl font-black tracking-tight uppercase mt-2 font-heading">Digitaliza y Blinda tu <span class="text-gradient">Operación Portuaria</span></h2>
-                <p class="text-slate-300 mt-3 text-xs sm:text-sm max-w-xl mx-auto">Optimiza la rentabilidad de tus cuadrillas de estibaje y mantén bajo control matemático absoluto el ciclo operativo y contable en tus muelles.</p>
+                <h2 class="text-xl sm:text-2xl font-black tracking-tight uppercase mt-1.5 font-heading">Digitaliza y Blinda tu <span class="text-gradient">Operación Portuaria</span></h2>
+                <p class="text-slate-300 mt-2 text-[11px] sm:text-xs max-w-xl mx-auto">Optimiza la rentabilidad de tus cuadrillas de estibaje y mantén bajo control matemático absoluto el ciclo operativo y contable en tus muelles.</p>
 
-                <form class="mt-6 sm:mt-8 space-y-5 text-left max-w-lg mx-auto w-full" action="https://formsubmit.co/rodrigo_bracho@fpuna.edu.py" method="POST" target="_self">
-                    <input type="hidden" name="_captcha" value="true">
-                    <input type="hidden" name="_next" value="{{ site.url }}/">
+                <form class="mt-4 sm:mt-6 space-y-4 text-left max-w-lg mx-auto w-full" action="https://formsubmit.co/rodrigo_bracho@fpuna.edu.py" method="POST">
+                    <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_subject" value="Nuevo contacto - Bracho Port System">
                     <div class="form-group">
                         <input type="text" id="nombre" name="nombre" placeholder=" " required>

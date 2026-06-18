@@ -47,34 +47,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================================================
-    // 2. MOBILE MENU
+    // 2. MOBILE MENU (Drawer from right)
     // ============================================================
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+    const mobileCloseBtn = document.getElementById('mobile-close-btn');
     const menuIcon = document.getElementById('menu-icon');
     const mobileLinks = document.querySelectorAll('.mobile-link');
 
-    if (mobileMenuBtn && mobileMenu && menuIcon) {
+    function openDrawer() {
+        mobileMenu.classList.remove('hidden');
+        mobileOverlay.classList.remove('hidden');
+        // Trigger transition on next frame
+        requestAnimationFrame(() => {
+            mobileMenu.classList.add('mobile-drawer-open');
+            mobileOverlay.classList.add('mobile-overlay-visible');
+        });
+        menuIcon.classList.replace('fa-bars', 'fa-xmark');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+        mobileMenu.classList.remove('mobile-drawer-open');
+        mobileOverlay.classList.remove('mobile-overlay-visible');
+        menuIcon.classList.replace('fa-xmark', 'fa-bars');
+        document.body.style.overflow = '';
+        // Hide after transition completes
+        setTimeout(() => {
+            mobileMenu.classList.add('hidden');
+            mobileOverlay.classList.add('hidden');
+        }, 300);
+    }
+
+    if (mobileMenuBtn && mobileMenu && mobileOverlay) {
         mobileMenuBtn.addEventListener('click', () => {
-            const isOpening = mobileMenu.classList.contains('hidden');
-            mobileMenu.classList.toggle('hidden');
-            if (isOpening) {
-                mobileMenu.classList.add('mobile-menu-open');
+            if (mobileMenu.classList.contains('hidden')) {
+                openDrawer();
             } else {
-                mobileMenu.classList.remove('mobile-menu-open');
+                closeDrawer();
             }
-            menuIcon.classList.replace(
-                isOpening ? 'fa-bars' : 'fa-xmark',
-                isOpening ? 'fa-xmark' : 'fa-bars'
-            );
         });
 
+        if (mobileCloseBtn) {
+            mobileCloseBtn.addEventListener('click', closeDrawer);
+        }
+
+        mobileOverlay.addEventListener('click', closeDrawer);
+
         mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('mobile-menu-open');
-                menuIcon.classList.replace('fa-xmark', 'fa-bars');
-            });
+            link.addEventListener('click', closeDrawer);
         });
     }
 
@@ -252,12 +274,20 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.textContent = 'Enviando...';
             btn.disabled = true;
 
+            const params = new URLSearchParams();
+            params.append('nombre', data.nombre);
+            params.append('empresa', data.empresa);
+            params.append('email', data.email);
+            params.append('telefono', data.telefono);
+            params.append('_captcha', 'false');
+            params.append('_subject', 'Nuevo contacto - Bracho Port System');
+
             fetch(form.action, {
                 method: 'POST',
-                body: new FormData(form),
-                headers: { 'Accept': 'application/json' }
+                mode: 'no-cors',
+                body: params,
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             })
-            .then(res => res.json())
             .then(() => {
                 btn.textContent = '✓ Enviado';
                 btn.style.background = '#16a34a';

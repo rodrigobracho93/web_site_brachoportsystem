@@ -76,30 +76,50 @@
 .stagger-children > *:nth-child(8) { animation-range: entry 35% entry 155%; }
 
 /* ================================================================
-   2. @STARTING-STYLE
+   2. MOBILE DRAWER (slide from right)
    ================================================================ */
-@starting-style {
-    .mobile-menu-open {
-        opacity: 0;
-        transform: translateY(-12px) scale(0.96);
-    }
-}
-
-/* Mobile menu items staggered entrance */
-.mobile-menu-animate .mobile-link {
+.mobile-overlay {
+    position: fixed; inset: 0; z-index: 60;
+    background: rgba(0,0,0,0.4);
     opacity: 0;
-    transform: translateX(-12px);
-    transition: all 0.3s var(--easing-smooth);
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(4px);
 }
-.mobile-menu-animate:not(.hidden) .mobile-link {
+.mobile-overlay-visible { opacity: 1; }
+
+.mobile-drawer {
+    position: fixed; top: 0; right: 0; z-index: 61;
+    width: 280px; height: 100dvh;
+    background: rgba(255,255,255,0.97);
+    transform: translateX(100%);
+    transition: transform 0.3s var(--easing-smooth);
+    box-shadow: -8px 0 30px rgba(0,0,0,0.1);
+    overflow-y: auto;
+}
+.dark .mobile-drawer {
+    background: rgba(11,25,44,0.98);
+}
+.mobile-drawer-open { transform: translateX(0); }
+
+.mobile-link {
+    opacity: 0;
+    transform: translateX(24px);
+    transition: opacity 0.35s ease, transform 0.35s var(--easing-smooth);
+}
+.mobile-drawer-open .mobile-link {
     opacity: 1;
     transform: translateX(0);
 }
-.mobile-menu-animate:not(.hidden) .mobile-link:nth-child(1) { transition-delay: 0.05s; }
-.mobile-menu-animate:not(.hidden) .mobile-link:nth-child(2) { transition-delay: 0.1s; }
-.mobile-menu-animate:not(.hidden) .mobile-link:nth-child(3) { transition-delay: 0.15s; }
-.mobile-menu-animate:not(.hidden) .mobile-link:nth-child(4) { transition-delay: 0.2s; }
-.mobile-menu-animate:not(.hidden) .mobile-link:nth-child(5) { transition-delay: 0.25s; }
+.mobile-drawer-open .mobile-link:nth-child(1) { transition-delay: 0.05s; }
+.mobile-drawer-open .mobile-link:nth-child(2) { transition-delay: 0.10s; }
+.mobile-drawer-open .mobile-link:nth-child(3) { transition-delay: 0.15s; }
+.mobile-drawer-open .mobile-link:nth-child(4) { transition-delay: 0.20s; }
+.mobile-drawer-open .mobile-link:nth-child(5) { transition-delay: 0.25s; }
+
+.mobile-drawer:not(.mobile-drawer-open) .mobile-link {
+    transition-delay: 0s !important;
+    transition-duration: 0.15s !important;
+}
 
 /* ================================================================
    3. KEYFRAMES
@@ -223,82 +243,24 @@
    7. STAT CARDS — Efectos y dibujos
    ================================================================ */
 .stat-card-v2 {
-    transition: transform 0.4s var(--easing-smooth),
-                box-shadow 0.4s var(--easing-smooth),
-                border-color 0.4s var(--easing-smooth);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    border-color: transparent;
 }
 .stat-card-v2:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(255,101,0,0.12);
-    border-color: rgba(255,101,0,0.25) !important;
+    background-color: rgba(255,101,0,0.04) !important;
+    border-color: rgba(255,101,0,0.2) !important;
+}
+.dark .stat-card-v2:hover {
+    background-color: rgba(255,101,0,0.08) !important;
 }
 
 .stat-bg-icon {
     position: absolute; inset: 0;
-    display: flex; align-items: center; justify-content: center;
-    opacity: 0;
-    transform: scale(0.8);
-    transition: all 0.5s var(--easing-smooth);
-    pointer-events: none;
+    width: 100%; height: 100%;
     color: var(--brand-orange);
-}
-.stat-bg-icon svg {
-    width: 80px; height: 80px;
-}
-@media (min-width: 640px) {
-    .stat-bg-icon svg { width: 100px; height: 100px; }
-}
-.stat-card-v2:hover .stat-bg-icon {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.stat-number {
-    position: relative;
-    transition: transform 0.3s var(--easing-smooth);
-}
-.stat-card-v2:hover .stat-number {
-    transform: scale(1.08);
-}
-
-.stat-bar {
-    width: 0;
-    height: 3px;
-    margin: 0.5rem auto 0.25rem;
-    border-radius: 4px;
-    background: linear-gradient(90deg, var(--brand-orange), var(--brand-orange-light));
-    transition: width 0.8s var(--easing-smooth) 0.2s;
-}
-.stat-card-v2:hover .stat-bar {
-    width: 40%;
-}
-.stat-card-v2:not(:hover) .stat-bar {
-    width: 0%;
-}
-
-/* Shimmer overlay on hover */
-.stat-card-v2::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(
-        105deg,
-        transparent 30%,
-        rgba(255,255,255,0.06) 50%,
-        transparent 70%
-    );
-    background-size: 200% 100%;
-    opacity: 0;
-    transition: opacity 0.4s;
+    opacity: 0.08;
     pointer-events: none;
-    border-radius: inherit;
-}
-.stat-card-v2:hover::after {
-    opacity: 1;
-    animation: stat-shimmer 0.8s ease;
-}
-@keyframes stat-shimmer {
-    0%   { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+    padding: 10%;
 }
 
 /* ================================================================
@@ -458,7 +420,7 @@
    ================================================================ */
 .form-group { position: relative; }
 .form-group input {
-    width: 100%; padding: 1rem 1rem 0.5rem;
+    width: 100%; padding: 0.75rem 0.75rem 0.4rem;
     border-radius: 0.75rem;
     background: white;
     border: 1px solid #cbd5e1;
@@ -606,103 +568,22 @@
    17. RESPONSIVE — Mobile First
    ================================================================ */
 @media (max-width: 639px) {
-    /* Nav */
-    nav .max-w-7xl { height: 3.75rem; }
-    nav .w-60 { width: 12rem; }
-    nav .w-60 svg text { font-size: 1.5rem !important; }
+    nav .max-w-7xl { height: 3.5rem; }
 
-    /* Hero */
-    .hero-title {
-        font-size: 1.5rem !important;
-        line-height: 1.2 !important;
-    }
-    .hero-subtitle {
-        font-size: 0.75rem !important;
-    }
-    header.py-12 {
-        padding-top: 2.5rem !important;
-        padding-bottom: 5rem !important;
-    }
-
-    /* Hide decorative overload on mobile */
-    .crane-hook { display: none !important; }
-    .beam-light { display: none !important; }
-    .container-block { display: none !important; }
-    .particle { display: none !important; }
+    .crane-hook, .beam-light, .container-block, .particle { display: none !important; }
     .hero-grid::before { background-size: 30px 30px !important; }
     .cargo-bg::before { background-size: 20px 20px !important; }
 
-    /* Sections */
-    .section-inner {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
-        padding-top: 2.5rem !important;
-        padding-bottom: 2.5rem !important;
-    }
-    .section-divider {
-        height: 2rem !important;
-    }
-    .mobile-nav-link {
-        padding: 0.75rem 0 !important;
-        font-size: 0.85rem !important;
-    }
+    .section-divider { height: 1.5rem !important; }
 
-    /* Cards & grids */
-    .objetivos-grid,
-    #objetivos .grid { gap: 0.75rem !important; }
-    #objetivos .max-w-3xl { margin-bottom: 1.5rem !important; }
+    #roles .rounded-2xl { padding: 0.5rem !important; }
+    .roles-grid { gap: 0.35rem !important; }
 
-    /* Stats */
-    .stat-card-v2 { padding: 0.75rem 0.5rem !important; }
-    .stat-number { font-size: 1.5rem !important; }
-    .stat-bar { display: none; }
-
-    /* Modulos */
-    #modulos .grid { gap: 0.75rem !important; }
-
-    /* Problema section */
-    #problema .grid { display: flex; flex-direction: column; gap: 0.75rem; }
-    #problema .border-l-4 { border-left-width: 3px; padding-left: 0.75rem; }
-
-    /* Roles */
-    #roles .rounded-2xl { padding: 0.75rem !important; }
-
-    /* Contacto */
-    #contacto .rounded-3xl { padding: 1.25rem !important; }
-
-    /* Footer */
-    footer.py-8 { padding-top: 1.5rem !important; padding-bottom: 1.5rem !important; }
-
-    /* Back to top */
-    .back-to-top {
-        bottom: 1rem; right: 1rem;
-        width: 40px; height: 40px;
-        font-size: 1rem;
-    }
-
-    /* Section headings */
-    .text-2xl.sm\:text-3xl.font-black {
-        font-size: 1.25rem !important;
-    }
-    .text-\[10px\].sm\:text-xs {
-        font-size: 0.55rem !important;
-    }
+    .back-to-top { bottom: 1rem; right: 1rem; width: 40px; height: 40px; font-size: 1rem; }
 }
 
 @media (min-width: 640px) and (max-width: 1023px) {
-    .hero-title {
-        font-size: 2.5rem !important;
-    }
-    header.py-12 {
-        padding-top: 3rem !important;
-        padding-bottom: 6rem !important;
-    }
-}
-
-@media (min-width: 640px) and (max-width: 1023px) {
-    .hero-title {
-        font-size: 2.5rem !important;
-    }
+    .hero-title { font-size: 2.5rem !important; }
 }
 
 /* Touch targets */
@@ -735,23 +616,46 @@
    19. MARITIME EFFECTS
    ================================================================ */
 
-/* --- 19a. WATER WAVE HERO BOTTOM --- */
-.wave-container {
-    position: absolute; bottom: -2px; left: 0; width: 100%;
-    height: 80px; overflow: hidden; z-index: 2;
+/* --- 19a. WAVES + SHIPS INLINE AFTER BUTTONS (full viewport width) --- */
+.hero-ships-container {
+    position: relative;
+    width: 100vw;
+    max-width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 70px;
+    margin-top: 1.75rem;
+    overflow: hidden;
+    z-index: 2;
     pointer-events: none;
 }
-.wave-container svg {
-    position: absolute; bottom: 0; width: 200%; height: 100%;
+.hero-ships-container .wave-bg-svg {
+    fill: rgba(255,101,0,0.08);
+    position: absolute; bottom: 0; left: 0; width: 200%; height: 100%;
     animation: wave-drift 6s linear infinite;
 }
-.wave-container svg:nth-child(2) {
+.hero-ships-container .wave-bg-svg-2 {
+    fill: rgba(255,255,255,0.04);
     animation: wave-drift 8s linear infinite reverse;
     opacity: 0.5;
 }
 @keyframes wave-drift {
     0%   { transform: translateX(0); }
     100% { transform: translateX(-50%); }
+}
+
+@media (min-width: 640px) {
+    .hero-ships-container {
+        left: auto;
+        transform: none;
+        margin-left: calc(-1 * ((100vw - min(100vw, 80rem)) / 2 + 1.5rem));
+        margin-top: 2.5rem;
+    }
+}
+@media (min-width: 1024px) {
+    .hero-ships-container {
+        margin-left: calc(-1 * ((100vw - min(100vw, 80rem)) / 2 + 2rem));
+    }
 }
 
 /* --- 19c. SHIPS ON WAVES --- */
