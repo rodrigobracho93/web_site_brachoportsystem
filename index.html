@@ -45,7 +45,7 @@
 
             <!-- Logo (click to top) -->
             <a href="#" class="flex items-center w-44 sm:w-72 lg:w-80 transition-opacity hover:opacity-80 flex-shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 110" class="w-full h-auto" aria-label="Bracho Port System Logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 110" class="w-full h-auto" aria-label="Bracho Port System Logo">
                     <defs>
                         <linearGradient id="brachoGrad" x1="0%" y1="100%" x2="100%" y2="0%">
                             <stop offset="0%" style="stop-color:#E05300;stop-opacity:1" />
@@ -123,7 +123,7 @@
     <!-- ============================================================
          HERO
          ============================================================ -->
-    <header class="relative bg-gradient-to-br from-slate-900 via-brand-navy to-brand-blue dark:from-black dark:via-brand-navy dark:to-slate-900 text-white pt-10 sm:pt-20 lg:pt-32 pb-4 sm:pb-0 overflow-hidden border-b border-slate-200/30 dark:border-slate-800/30 hero-gradient hero-grid cargo-bg">
+    <header class="relative bg-gradient-to-br from-slate-900 via-brand-navy to-brand-blue dark:from-black dark:via-brand-navy dark:to-slate-900 text-white pt-6 sm:pt-12 lg:pt-20 pb-4 sm:pb-0 overflow-hidden border-b border-slate-200/30 dark:border-slate-800/30 hero-gradient hero-grid cargo-bg">
 
         <div class="particles">
             <div class="particle"></div><div class="particle"></div>
@@ -144,11 +144,11 @@
         <!-- Light beam sweep -->
         <div class="beam-light"></div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
             <div class="reveal-left flex flex-col">
                 <span class="bg-brand-orange/20 text-brand-orange text-[10px] sm:text-xs font-bold tracking-widest uppercase px-3 py-1.5 rounded-md border border-brand-orange/30 inline-block font-heading w-fit">Investigación Aplicada & Ingeniería Portuaria</span>
 
-                <h1 class="hero-title text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mt-4 leading-tight uppercase font-heading">
+                <h1 class="hero-title text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight mt-4 leading-tight uppercase font-heading">
                     Gestión Integral para Empresas Tercerizadas de Mano de Obra en Puertos
                 </h1>
 
@@ -168,7 +168,7 @@
                     </a>
                 </div>
 
-                <!-- Ships + waves — inline after buttons -->
+                <!-- Ships + waves -->
                 <div class="hero-ships-container">
                     <svg class="wave-bg-svg" viewBox="0 0 1440 80" preserveAspectRatio="none">
                         <path d="M0,40 C360,80 720,0 1080,40 L1440,40 L1440,80 L0,80 Z"/>
@@ -237,16 +237,18 @@
     <!-- ============================================================
          PROBLEMA
          ============================================================ -->
-    <section id="problema" class="py-12 sm:py-20 bg-white dark:bg-brand-darkBg transition-colors">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 reveal-up">
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 items-center">
-                <div class="sm:col-span-1 border-l-4 border-brand-orange pl-4">
-                    <span class="text-brand-orange text-[10px] sm:text-xs font-bold uppercase tracking-wider font-mono font-heading">Caso de Estudio Operativo</span>
-                    <h2 class="text-xl sm:text-2xl font-black text-brand-navy dark:text-white uppercase mt-1 font-heading">El Dolor Logístico</h2>
+    <section id="problema" class="py-16 sm:py-24 lg:py-28 bg-white dark:bg-brand-darkBg transition-colors relative overflow-hidden cargo-bg">
+        <div class="absolute inset-0 opacity-[0.03] dark:opacity-[0.06]" style="background: repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,101,0,0.3) 40px, rgba(255,101,0,0.3) 41px), repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,101,0,0.3) 40px, rgba(255,101,0,0.3) 41px);"></div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
+                <div class="lg:col-span-2 reveal-left">
+                    <span class="text-brand-orange text-xs sm:text-sm font-bold uppercase tracking-widest font-mono font-heading"><i class="fa-solid fa-circle-exclamation mr-2 anchor-icon"></i>Caso de Estudio Operativo</span>
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-brand-navy dark:text-white uppercase mt-2 font-heading leading-tight">El Dolor<br>Logístico</h2>
+                    <div class="mt-5 w-16 h-1 bg-brand-orange rounded-full"></div>
                 </div>
-                <div class="sm:col-span-2 text-slate-600 dark:text-slate-400 text-xs sm:text-sm space-y-3 leading-relaxed">
-                    <p>Las empresas tercerizadas que proveen cuadrillas de estibaje para la carga de barcazas graneleras administran de forma <strong>desarticulada y empírica</strong> tres ejes críticos: la operación física de carga, los recursos humanos y el control contable.</p>
-                    <p>Esto provoca ineficiencias, errores manuales en liquidación de haberes, descontrol en el rendimiento y riesgos estructurales en la <strong>navegabilidad de las embarcaciones</strong> debido a una inadecuada distribución de pesos en muelle.</p>
+                <div class="lg:col-span-3 stagger-children space-y-6 text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                    <p class="hover-lift bg-orange-50 dark:bg-brand-orange/5 border-l-2 border-brand-orange pl-5 py-4 rounded-r-lg">Las empresas tercerizadas que proveen cuadrillas de estibaje para la carga de barcazas graneleras administran de forma <strong class="text-brand-navy dark:text-white">desarticulada y empírica</strong> tres ejes críticos: la operación física de carga, los recursos humanos y el control contable.</p>
+                    <p class="hover-lift pl-5">Esto provoca ineficiencias, errores manuales en liquidación de haberes, descontrol en el rendimiento y <strong class="text-brand-navy dark:text-white">riesgos estructurales en la navegabilidad de las embarcaciones</strong> debido a una inadecuada distribución de pesos en muelle.</p>
                 </div>
             </div>
         </div>
@@ -311,8 +313,14 @@
     <section class="py-10 sm:py-16 bg-slate-100 dark:bg-brand-navy/40 border-b border-slate-200 dark:border-slate-800">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 reveal-up">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
-                <div class="stat-card-v2 rounded-2xl p-4 sm:p-6 text-center shadow-sm border border-slate-200/60 dark:border-slate-800 bg-white dark:bg-brand-darkCard relative overflow-hidden">
-                    <svg class="stat-bg-icon" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="20" y="35" width="60" height="40" rx="3" stroke="currentColor" stroke-width="1.5"/><rect x="28" y="42" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="46" y="42" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="64" y="42" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.5"/><line x1="20" y1="28" x2="40" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="80" y1="28" x2="60" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                <div class="stat-card-v2 rounded-2xl p-4 sm:p-6 text-center shadow-sm border border-slate-200/60 dark:border-slate-800 bg-white dark:bg-brand-darkCard relative overflow-hidden group">
+                    <svg class="stat-bg-icon" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                        <path d="M25 75 L45 75 L55 50 L95 50 L105 75 L125 75 L113 92 L32 92 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                        <rect x="62" y="30" width="14" height="20" rx="2" stroke="currentColor" stroke-width="2"/>
+                        <rect x="80" y="36" width="12" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                        <line x1="32" y1="84" x2="118" y2="84" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M35 65 L70 20 L105 65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 3"/>
+                    </svg>
                     <div class="relative z-10">
                         <div class="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-orange font-heading">
                             <span class="counter-value" data-target="10" data-suffix="+">0</span>
@@ -320,8 +328,17 @@
                         <div class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1.5 uppercase tracking-widest font-semibold leading-tight">Experiencia en Logística Portuaria</div>
                     </div>
                 </div>
-                <div class="stat-card-v2 rounded-2xl p-4 sm:p-6 text-center shadow-sm border border-slate-200/60 dark:border-slate-800 bg-white dark:bg-brand-darkCard relative overflow-hidden">
-                    <svg class="stat-bg-icon" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="25" y="30" width="50" height="45" rx="4" stroke="currentColor" stroke-width="1.5"/><rect x="32" y="38" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><rect x="52" y="38" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="50" cy="58" r="8" stroke="currentColor" stroke-width="1.5"/></svg>
+                <div class="stat-card-v2 rounded-2xl p-4 sm:p-6 text-center shadow-sm border border-slate-200/60 dark:border-slate-800 bg-white dark:bg-brand-darkCard relative overflow-hidden group">
+                    <svg class="stat-bg-icon" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                        <rect x="30" y="25" width="60" height="50" rx="5" stroke="currentColor" stroke-width="2"/>
+                        <rect x="38" y="35" width="18" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
+                        <rect x="60" y="35" width="18" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
+                        <rect x="38" y="52" width="40" height="8" rx="2" stroke="currentColor" stroke-width="2"/>
+                        <line x1="30" y1="80" x2="90" y2="80" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="50" cy="87" r="6" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="70" cy="87" r="6" stroke="currentColor" stroke-width="2"/>
+                        <line x1="60" y1="75" x2="60" y2="82" stroke="currentColor" stroke-width="2"/>
+                    </svg>
                     <div class="relative z-10">
                         <div class="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-orange font-heading">
                             <span class="counter-value" data-target="4" data-suffix="">0</span>
@@ -329,8 +346,15 @@
                         <div class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1.5 uppercase tracking-widest font-semibold leading-tight">Módulos Integrados</div>
                     </div>
                 </div>
-                <div class="stat-card-v2 rounded-2xl p-4 sm:p-6 text-center shadow-sm border border-slate-200/60 dark:border-slate-800 bg-white dark:bg-brand-darkCard relative overflow-hidden">
-                    <svg class="stat-bg-icon" viewBox="0 0 100 100" fill="none" aria-hidden="true"><circle cx="50" cy="35" r="12" stroke="currentColor" stroke-width="1.5"/><path d="M35 65 Q50 50 65 65" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="38" cy="70" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="62" cy="70" r="4" stroke="currentColor" stroke-width="1.5"/></svg>
+                <div class="stat-card-v2 rounded-2xl p-4 sm:p-6 text-center shadow-sm border border-slate-200/60 dark:border-slate-800 bg-white dark:bg-brand-darkCard relative overflow-hidden group">
+                    <svg class="stat-bg-icon" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                        <circle cx="60" cy="40" r="16" stroke="currentColor" stroke-width="2"/>
+                        <path d="M38 80 Q60 60 82 80" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        <circle cx="42" cy="86" r="5" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="78" cy="86" r="5" stroke="currentColor" stroke-width="2"/>
+                        <path d="M60 56 L60 68" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <rect x="55" y="68" width="10" height="4" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
                     <div class="relative z-10">
                         <div class="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-orange font-heading">
                             <span class="counter-value" data-target="5" data-suffix="">0</span>
@@ -338,8 +362,17 @@
                         <div class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 mt-1.5 uppercase tracking-widest font-semibold leading-tight">Roles Diferenciados</div>
                     </div>
                 </div>
-                <div class="stat-card-v2 rounded-2xl p-4 sm:p-6 text-center shadow-sm border border-slate-200/60 dark:border-slate-800 bg-white dark:bg-brand-darkCard relative overflow-hidden">
-                    <svg class="stat-bg-icon" viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M20 75 L35 45 L50 55 L65 35 L80 65" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="35" cy="45" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="50" cy="55" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="65" cy="35" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="80" cy="65" r="3" stroke="currentColor" stroke-width="1.5"/><line x1="20" y1="80" x2="85" y2="80" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <div class="stat-card-v2 rounded-2xl p-4 sm:p-6 text-center shadow-sm border border-slate-200/60 dark:border-slate-800 bg-white dark:bg-brand-darkCard relative overflow-hidden group">
+                    <svg class="stat-bg-icon" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                        <rect x="20" y="50" width="80" height="45" rx="4" stroke="currentColor" stroke-width="2"/>
+                        <path d="M30 75 L45 55 L55 65 L70 45 L85 65" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="45" cy="55" r="4" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="55" cy="65" r="4" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="70" cy="45" r="4" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="85" cy="65" r="4" stroke="currentColor" stroke-width="2"/>
+                        <line x1="20" y1="100" x2="100" y2="100" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M40 20 L60 35 L80 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    </svg>
                     <div class="relative z-10">
                         <div class="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-orange font-heading">
                             <span class="counter-value" data-target="100" data-suffix="%">0</span>
@@ -468,27 +501,34 @@
                 <h2 class="text-xl sm:text-2xl font-black tracking-tight uppercase mt-1.5 font-heading">Digitaliza y Blinda tu <span class="text-gradient">Operación Portuaria</span></h2>
                 <p class="text-slate-300 mt-2 text-[11px] sm:text-xs max-w-xl mx-auto">Optimiza la rentabilidad de tus cuadrillas de estibaje y mantén bajo control matemático absoluto el ciclo operativo y contable en tus muelles.</p>
 
-                <form class="mt-4 sm:mt-6 space-y-4 text-left max-w-lg mx-auto w-full" action="https://formsubmit.co/rodrigo_bracho@fpuna.edu.py" method="POST">
-                    <input type="hidden" name="_captcha" value="false">
+                <form class="mt-5 sm:mt-7 text-left max-w-xl mx-auto w-full" action="https://formsubmit.co/rodrigo_bracho@fpuna.edu.py" method="POST">
+                    <input type="hidden" name="_captcha" value="true">
                     <input type="hidden" name="_subject" value="Nuevo contacto - Bracho Port System">
-                    <div class="form-group">
-                        <input type="text" id="nombre" name="nombre" placeholder=" " required>
-                        <label for="nombre">Tu Nombre Completo</label>
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="form-group">
+                            <input type="text" id="nombre" name="nombre" placeholder=" " required>
+                            <label for="nombre"><i class="fa-regular fa-user mr-1.5 text-brand-orange/60"></i>Tu Nombre Completo</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="empresa" name="empresa" placeholder=" " required>
+                            <label for="empresa"><i class="fa-regular fa-building mr-1.5 text-brand-orange/60"></i>Empresa / Puerto</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder=" " required>
+                            <label for="email"><i class="fa-regular fa-envelope mr-1.5 text-brand-orange/60"></i>Correo Electrónico</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="telefono" name="telefono" placeholder=" " required>
+                            <label for="telefono"><i class="fa-regular fa-phone mr-1.5 text-brand-orange/60"></i>Teléfono / Contacto</label>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="text" id="empresa" name="empresa" placeholder=" " required>
-                        <label for="empresa">Empresa / Puerto</label>
+                    <div class="form-group mt-4">
+                        <textarea id="mensaje" name="mensaje" placeholder=" " rows="3" class="form-textarea"></textarea>
+                        <label for="mensaje"><i class="fa-regular fa-comment mr-1.5 text-brand-orange/60"></i>Mensaje / Consulta (opcional)</label>
                     </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder=" " required>
-                        <label for="email">Correo Electrónico Corporativo</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" id="telefono" name="telefono" placeholder=" " required>
-                        <label for="telefono">Teléfono / Contacto</label>
-                    </div>
-                    <button type="submit" class="bg-brand-orange hover:bg-orange-600 text-white font-bold py-2.5 px-6 rounded-xl text-xs uppercase tracking-wider shadow-lg transition font-heading magnetic-btn mx-auto block w-auto">
-                        Agendar Presentación
+                    <button type="submit" class="mt-5 bg-brand-orange hover:bg-orange-600 text-white font-bold py-3 px-10 rounded-xl text-xs uppercase tracking-wider shadow-lg transition font-heading magnetic-btn mx-auto block w-auto">
+                        <i class="fa-regular fa-paper-plane mr-2"></i>Agendar Presentación
                     </button>
                 </form>
             </div>
