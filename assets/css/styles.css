@@ -1,5 +1,5 @@
 /* ================================================================
-   BRACHO PORT SYSTEM — Master Stylesheet
+   B-PORT SYSTEM - Master Stylesheet
    Últimas técnicas CSS 2026
    ================================================================ */
 
@@ -758,39 +758,54 @@
 /* --- 19c. SHIPS ON WAVES --- */
 .ship {
     position: absolute;
+    display: block !important;
+    left: -120px;
     bottom: 0;
     pointer-events: none;
     z-index: 3;
-    animation-composition: add;
+    opacity: 1 !important;
+    visibility: visible !important;
+    will-change: transform;
 }
 .ship-large {
     width: 90px;
     height: auto;
-    animation: ship-sail-large 90s linear infinite, ship-bob 5s ease-in-out infinite;
+    animation: ship-large-move 30s linear infinite;
     bottom: -4px;
 }
 .ship-small {
     width: 55px;
     height: auto;
-    animation: ship-sail-small 70s linear infinite, ship-bob 4s ease-in-out infinite;
-    animation-delay: -25s, -2s;
-    bottom: 4px;
+    animation: ship-small-move 34s linear infinite;
+    animation-delay: -18s;
+    bottom: 8px;
+    left: -60px;
 }
-@keyframes ship-sail-large {
-    0%   { transform: translateX(-110px); }
-    100% { transform: translateX(calc(100vw + 60px)); }
+@keyframes ship-large-move {
+    0%   { transform: translateX(0) translateY(0) rotate(0deg); }
+    20%  { transform: translateX(24vw) translateY(-2px) rotate(1deg); }
+    50%  { transform: translateX(54vw) translateY(-4px) rotate(-1deg); }
+    80%  { transform: translateX(84vw) translateY(-2px) rotate(1deg); }
+    100% { transform: translateX(118vw) translateY(0) rotate(0deg); }
 }
-@keyframes ship-sail-small {
-    0%   { transform: translateX(-70px); }
-    100% { transform: translateX(calc(100vw + 40px)); }
-}
-@keyframes ship-bob {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50%      { transform: translateY(-3px) rotate(1deg); }
+@keyframes ship-small-move {
+    0%   { transform: translateX(0) translateY(0) rotate(0deg); opacity: 0; }
+    8%   { opacity: 1; }
+    20%  { transform: translateX(10vw) translateY(-2px) rotate(1deg); }
+    50%  { transform: translateX(28vw) translateY(-3px) rotate(-1deg); }
+    75%  { transform: translateX(50vw) translateY(-1px) rotate(1deg); }
+    100% { transform: translateX(78vw) translateY(0) rotate(0deg); opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .ship { animation: none !important; opacity: 0; }
+    .ship-large {
+        animation: ship-large-move 40s linear infinite !important;
+        opacity: 1 !important;
+    }
+    .ship-small {
+        animation: ship-small-move 32s linear infinite !important;
+        opacity: 1 !important;
+    }
 }
 
 /* --- 19b. CARGO CONTAINER GRID PATTERN --- */
@@ -817,21 +832,22 @@
 }
 .container-block {
     position: absolute;
-    border: 1px solid rgba(255,101,0,0.15);
-    background: rgba(255,101,0,0.03);
+    border: 1px solid rgba(255,101,0,0.06);
+    background: rgba(255,101,0,0.012);
     border-radius: 2px;
+    opacity: 0.45;
     animation: container-stack 4s ease-in-out infinite;
 }
 .container-block:nth-child(1) {
-    width: 60px; height: 30px; bottom: 15%; right: 8%;
+    width: 38px; height: 18px; bottom: 18%; right: 10%;
     animation-delay: 0s;
 }
 .container-block:nth-child(2) {
-    width: 50px; height: 25px; bottom: 25%; right: 15%;
+    width: 30px; height: 15px; bottom: 28%; right: 18%;
     animation-delay: 0.8s;
 }
 .container-block:nth-child(3) {
-    width: 45px; height: 22px; bottom: 35%; right: 5%;
+    width: 26px; height: 13px; bottom: 38%; right: 7%;
     animation-delay: 1.6s;
 }
 
