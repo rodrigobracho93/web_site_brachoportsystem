@@ -1,20 +1,24 @@
 # B-Port System
 
-Landing page para la presentación comercial de B-Port System, una solución tecnológica enfocada en la gestión integral de operaciones portuarias, mano de obra tercerizada y control logístico.
+Landing page institucional y comercial para la presentación de B-Port System, una solución tecnológica orientada a la gestión integral de operaciones portuarias, mano de obra tercerizada, control logístico y optimización operativa.
 
-## Descripción
+## Overview
 
-B-Port System es una propuesta de software orientada a empresas que operan en terminales portuarias, con foco en:
+B-Port System es una propuesta de software diseñada para empresas que operan en terminales portuarias y requieren un control más preciso sobre:
 
-- gestión operativa de carga
-- control de personal y cuadrillas
+- operación de carga y estiba
+- gestión de personal y cuadrillas
 - seguridad laboral y cumplimiento
 - contabilidad y facturación
-- trazabilidad y reportes operativos
+- trazabilidad operativa y reportes
 
-La página presenta la propuesta de valor, módulos del sistema, roles de usuario, objetivos del proyecto y formulario de contacto.
+La página presenta la propuesta de valor del sistema, sus módulos funcionales, objetivos de optimización, roles de usuario y un canal de contacto para generar oportunidades comerciales.
 
-## Tecnologías utilizadas
+## Objetivo
+
+Posicionar a B-Port System como una solución tecnológica de alto valor para la industria portuaria, enfocada en la automatización, reducción de errores manuales, mejora de la eficiencia operativa y fortalecimiento del control administrativo.
+
+## Stack tecnológico
 
 - HTML5
 - CSS3
@@ -35,40 +39,53 @@ La página presenta la propuesta de valor, módulos del sistema, roles de usuari
 │   └── js/
 │       └── script.js
 ├── README.md
-└── .gitignore
+├── .gitignore
+└── .vscode/
 ```
 
-## Cómo ejecutar el proyecto
+## Cómo ejecutar
 
-Puedes abrir directamente el archivo `index.html` en el navegador o servir la carpeta localmente con un servidor simple:
+Puedes abrir el archivo `index.html` directamente en el navegador o levantar un servidor local:
 
 ```bash
 python -m http.server 8000
 ```
 
-Luego accede a:
+Luego visita:
 
 ```bash
 http://localhost:8000
 ```
 
-## Características
+## Funcionalidades destacadas
 
-- diseño moderno y corporativo
-- enfoque portuario y logístico
-- interfaz responsiva
-- animaciones sutiles y efectos visuales
-- formulario de contacto
-- navegación interna por secciones
+- diseño corporativo y moderno
+- branding institucional con enfoque portuario
+- interfaz responsive
+- navegación por secciones
+- formularios de contacto
+- animaciones sutiles para reforzar la identidad visual
+- estructura preparada para presentación comercial y demostración operativa
 
-## Objetivo del proyecto
+## Propuesta de valor
 
-Mostrar de forma profesional la propuesta de B-Port System como solución tecnológica para optimizar la operación portuaria, reduciendo errores, mejorando trazabilidad y fortaleciendo la gestión operativa y contable.
+B-Port System permite a las organizaciones portuarias:
+
+- mejorar la coordinación entre operación, recursos humanos y contabilidad
+- reducir errores en liquidaciones y procesos manuales
+- aumentar la trazabilidad del trabajo realizado en muelle
+- optimizar la planificación y ejecución de la carga
+- fortalecer la seguridad, el control y la toma de decisiones
 
 ## Autor
 
-Proyecto desarrollado para presentación comercial y demostración institucional.
+Proyecto desarrollado para presentación comercial e institucional.
+
+## Contacto
+
+- Email: rodrigo_bracho@fpuna.edu.py
+- WhatsApp: +595 972 424632
 
 ## Licencia
 
-Este proyecto está bajo una licencia de uso interno / académico, según la política del autor o institución responsable.
+Este proyecto está bajo una licencia de uso interno y académico, según la política del autor o la institución responsable.

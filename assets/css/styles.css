@@ -675,6 +675,19 @@
     .roles-grid { gap: 0.35rem !important; }
 
     .back-to-top { bottom: 1rem; right: 1rem; width: 40px; height: 40px; font-size: 1rem; }
+
+    .ship-large {
+        width: 74px;
+        animation: ship-large-move 22s linear infinite;
+        bottom: -2px;
+    }
+    .ship-small {
+        width: 46px;
+        animation: ship-small-move 28s linear infinite;
+        animation-delay: -18s;
+        bottom: 8px;
+        left: -70px;
+    }
 }
 
 @media (min-width: 640px) and (max-width: 1023px) {
@@ -770,31 +783,47 @@
 .ship-large {
     width: 90px;
     height: auto;
-    animation: ship-large-move 30s linear infinite;
+    animation: ship-large-move 22s linear infinite;
     bottom: -4px;
 }
 .ship-small {
     width: 55px;
     height: auto;
-    animation: ship-small-move 34s linear infinite;
+    animation: ship-small-move 28s linear infinite;
     animation-delay: -18s;
     bottom: 8px;
     left: -60px;
 }
 @keyframes ship-large-move {
     0%   { transform: translateX(0) translateY(0) rotate(0deg); }
-    20%  { transform: translateX(24vw) translateY(-2px) rotate(1deg); }
-    50%  { transform: translateX(54vw) translateY(-4px) rotate(-1deg); }
-    80%  { transform: translateX(84vw) translateY(-2px) rotate(1deg); }
-    100% { transform: translateX(118vw) translateY(0) rotate(0deg); }
+    20%  { transform: translateX(28vw) translateY(-2px) rotate(1deg); }
+    50%  { transform: translateX(60vw) translateY(-4px) rotate(-1deg); }
+    80%  { transform: translateX(90vw) translateY(-2px) rotate(1deg); }
+    100% { transform: translateX(130vw) translateY(0) rotate(0deg); }
 }
 @keyframes ship-small-move {
     0%   { transform: translateX(0) translateY(0) rotate(0deg); opacity: 0; }
-    8%   { opacity: 1; }
-    20%  { transform: translateX(10vw) translateY(-2px) rotate(1deg); }
+    12%  { opacity: 1; }
+    24%  { transform: translateX(10vw) translateY(-2px) rotate(1deg); }
     50%  { transform: translateX(28vw) translateY(-3px) rotate(-1deg); }
-    75%  { transform: translateX(50vw) translateY(-1px) rotate(1deg); }
-    100% { transform: translateX(78vw) translateY(0) rotate(0deg); opacity: 0; }
+    76%  { transform: translateX(52vw) translateY(-1px) rotate(1deg); }
+    100% { transform: translateX(84vw) translateY(0) rotate(0deg); opacity: 0; }
+}
+
+@keyframes ship-large-mobile-move {
+    0%   { transform: translateX(0) translateY(0) rotate(0deg); }
+    20%  { transform: translateX(20vw) translateY(-2px) rotate(1deg); }
+    50%  { transform: translateX(52vw) translateY(-4px) rotate(-1deg); }
+    78%  { transform: translateX(80vw) translateY(-2px) rotate(1deg); }
+    100% { transform: translateX(110vw) translateY(0) rotate(0deg); }
+}
+@keyframes ship-small-mobile-move {
+    0%   { transform: translateX(0) translateY(0) rotate(0deg); opacity: 0; }
+    10%  { opacity: 1; }
+    22%  { transform: translateX(12vw) translateY(-2px) rotate(1deg); }
+    50%  { transform: translateX(32vw) translateY(-3px) rotate(-1deg); }
+    76%  { transform: translateX(58vw) translateY(-1px) rotate(1deg); }
+    100% { transform: translateX(86vw) translateY(0) rotate(0deg); opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,0 +1,28 @@
+# Dependencias locales
+node_modules/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Configuración local
+.env
+.env.*
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Archivos de notas personales del proyecto
+*Pasos para subir en el Github.txt
+
+# Salidas de compilación si las hubiera
+/dist/
+/build/
