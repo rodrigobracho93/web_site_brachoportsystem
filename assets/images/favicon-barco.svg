@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="B-Port System">
+  <defs>
+    <linearGradient id="favbg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#13273F"/>
+      <stop offset="100%" stop-color="#0B192C"/>
+    </linearGradient>
+    <linearGradient id="favhull" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF8A3D"/>
+      <stop offset="55%" stop-color="#FF6500"/>
+      <stop offset="100%" stop-color="#E05300"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#favbg)"/>
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="#FF6500" stroke-opacity="0.65" stroke-width="1.2"/>
+
+  <g transform="translate(-5.2 -2.1) scale(0.55)">
+    <path d="M15 75 L35 75 L45 52 L85 52 L95 75 L120 75 L108 92 L27 92 Z" fill="url(#favhull)"/>
+    <rect x="52" y="32" width="12" height="20" rx="1" fill="#F8FAFC"/>
+    <rect x="68" y="38" width="10" height="14" rx="1" fill="#F8FAFC"/>
+    <line x1="24" y1="84" x2="111" y2="84" stroke="#0B192C" stroke-opacity="0.55" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="42" cy="84" r="2.6" fill="#0B192C" fill-opacity="0.75"/>
+    <circle cx="67" cy="84" r="2.6" fill="#0B192C" fill-opacity="0.75"/>
+    <circle cx="92" cy="84" r="2.6" fill="#0B192C" fill-opacity="0.75"/>
+  </g>
+</svg>
